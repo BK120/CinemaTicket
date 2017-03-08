@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CinemaTicket.iml" filepath="$PROJECT_DIR$/CinemaTicket.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mytest_addressfenlei/mytest_addressfenlei.iml" filepath="$PROJECT_DIR$/mytest_addressfenlei/mytest_addressfenlei.iml" />
       <module fileurl="file://$PROJECT_DIR$/mytest_cehuacaidan/mytest_cehuacaidan.iml" filepath="$PROJECT_DIR$/mytest_cehuacaidan/mytest_cehuacaidan.iml" />
       <module fileurl="file://$PROJECT_DIR$/mytest_constraintlayout/mytest_constraintlayout.iml" filepath="$PROJECT_DIR$/mytest_constraintlayout/mytest_constraintlayout.iml" />
     </modules>
