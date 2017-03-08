@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:id="@+id/addressactivity_recycleview_address_item_ll"
+        android:background="@drawable/addressactivity_recycleview_item_selelctor"
+        >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:textSize="16sp"
+        android:textColor="#767E81"
+        android:id="@+id/addressactivity_recycleview_address_item_title_tv"
+        />
+    <TextView
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:textSize="18sp"
+        android:textColor="#f00"
+        android:id="@+id/addressactivity_recycleview_address_item_tv"
+        />
+    </LinearLayout>
+
+</RelativeLayout>
