@@ -9,4 +9,10 @@
     <color name="colorGray">#7E7E7E</color>
     <color name="colorBlue">#1F9BEA</color>
     <color name="colorBlack">#000000</color>
+    <color name="card_bg_red">#FE8A65</color>
+    <color name="card_bg_yellow">#FFB944</color>
+    <color name="card_bg_green">#66CC99</color>
+    <color name="card_bg_blue">#04B9F5</color>
+    <color name="card_bg_brown">#A0F26C</color>
+    <color name="card_bg_yale">#0F9850</color>
 </resources>

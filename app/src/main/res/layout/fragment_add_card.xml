@@ -1,0 +1,16 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.bk120.cinematicket.fragments.AddCardFragment">
+    <TextView
+        android:layout_height="45dp"
+        android:layout_width="match_parent"
+        android:textColor="@color/colorWhite"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:text="添加个人账户"
+        android:background="@color/colorBlue"
+        />
+</LinearLayout>

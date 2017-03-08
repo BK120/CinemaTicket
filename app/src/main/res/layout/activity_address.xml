@@ -68,7 +68,7 @@
         android:layout_alignParentRight="true"
         android:id="@+id/alphabetButton"
         android:layout_below="@id/addressactivity_search_et"
-        android:text="#\nA\nB\nC\nD\nE\nF\nG\nH\nI\nG\nK\nL\nM\nN\nO\nP\nQ\nR\nS\nT\nU\nV\nW\nX\nY\nZ"
+        android:text="#\nA\nB\nC\nD\nE\nF\nG\nH\nI\nJ\nK\nL\nM\nN\nO\nP\nQ\nR\nS\nT\nU\nV\nW\nX\nY\nZ"
         android:textColor="#00f"
         android:background="#00000000"
         android:gravity="center"

@@ -24,14 +24,12 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity android:name=".activitys.AddressActivity" />
         <activity android:name=".activitys.PlayFilmActivity" />
-        <activity android:name=".activitys.LoginRegisterActivity" >
-
-        </activity>
-        <activity android:name=".activitys.UpdateUserActivity"></activity>
+        <activity android:name=".activitys.LoginRegisterActivity"></activity>
+        <activity android:name=".activitys.UpdateUserActivity" />
+        <activity android:name=".activitys.WalletActivity"></activity>
     </application>
 
 </manifest>

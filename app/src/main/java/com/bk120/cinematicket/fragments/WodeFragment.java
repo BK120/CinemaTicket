@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.bk120.cinematicket.R;
 import com.bk120.cinematicket.activitys.LoginRegisterActivity;
 import com.bk120.cinematicket.activitys.UpdateUserActivity;
+import com.bk120.cinematicket.activitys.WalletActivity;
 import com.bk120.cinematicket.bean.StringSign;
 import com.bk120.cinematicket.bean.User;
 import com.bk120.cinematicket.db.UserInfoDao;
@@ -37,7 +38,7 @@ public class WodeFragment extends Fragment implements View.OnClickListener{
     private RelativeLayout user_info_rl,wodedingdan_rl,wodeqianbao_rl,yue_rl,youhuijuan_rl,shangcheng_rl,
     wodexiaoxi_rl,wodeshouchang_rl,huiyuanzhongxin_rl,wodeshenghuo_rl,shezhi_rl;
     private User user;
-
+    private UserInfoDao dao;
     public WodeFragment() {
     }
 
@@ -45,30 +46,18 @@ public class WodeFragment extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        EventBus.getDefault().register(this);
         rootView= inflater.inflate(R.layout.fragment_wode, container, false);
+        dao=new UserInfoDao(getContext());
         initView();
         initListener();
         return rootView;
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
-        EventBus.getDefault().unregister(this);
-    }
-
-    @Override
     public void onResume() {
         super.onResume();
+        user=dao.selectOnLine();
         initShow(user);
-    }
-
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void getUser(User u){
-        this.user=u;
-        //重新设置视图
-        onResume();
     }
 
     //开始显示
@@ -137,9 +126,7 @@ public class WodeFragment extends Fragment implements View.OnClickListener{
         switch (v.getId()){
             case R.id.wodefragment_user_info_rl:
                 if (user==null){
-                    //登录注册部分
-                    Intent i=new Intent(getContext(), LoginRegisterActivity.class);
-                    startActivity(i);
+                    showLoginAndRegister();
                 }else {
                     //修改用户信息部分
                     Intent i=new Intent(getContext(), UpdateUserActivity.class);
@@ -148,7 +135,13 @@ public class WodeFragment extends Fragment implements View.OnClickListener{
                 break;
             case R.id.wodefragment_wodeqianbao_rl:
                 //进入钱包部分
-                Toast.makeText(getContext(),"功能未开启!敬请期待!",Toast.LENGTH_SHORT).show();
+                if (user==null){
+                    showLoginAndRegister();
+                }else {
+                    //进入查看钱包页面
+                    Intent i=new Intent(getContext(), WalletActivity.class);
+                    startActivity(i);
+                }
                 break;
             case R.id.wodefragment_yue_rl:
                 //进入余额设置部分功能  隐藏余额
@@ -217,5 +210,10 @@ public class WodeFragment extends Fragment implements View.OnClickListener{
             default:
                 Toast.makeText(getContext(),"功能未开启!敬请期待!",Toast.LENGTH_SHORT).show();
         }
+    }
+    public void showLoginAndRegister(){
+        //登录注册部分
+        Intent i=new Intent(getContext(), LoginRegisterActivity.class);
+        startActivity(i);
     }
 }

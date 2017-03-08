@@ -15,6 +15,7 @@ import com.bk120.cinematicket.R;
 import com.bk120.cinematicket.bean.RegisterSuccessSign;
 import com.bk120.cinematicket.bean.StringSign;
 import com.bk120.cinematicket.bean.User;
+import com.bk120.cinematicket.constants.MainConstant;
 import com.bk120.cinematicket.db.UserInfoDao;
 
 import org.greenrobot.eventbus.EventBus;
@@ -87,7 +88,7 @@ public class UserRegisterFragment extends Fragment implements View.OnClickListen
                 }
                 //保存数据至数据库，并跳转至登录界面，携带用户名和密码过去
                 User user1=new User(username,password);
-                user1.setBalance(0.00);
+                user1.setBalance(MainConstant.USERMONEY);
                 user1.setIsRememberPWD(0);
                 user1.setIsAutoLogin(0);
                 user1.setMotto("Hello BK票儿！");

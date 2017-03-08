@@ -62,11 +62,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     }
     //开始显示
     private void initShow() {
-        UserInfoDao dao=new UserInfoDao(this);
-        User user = dao.selectOnLine();
-        if (user!=null){
-            EventBus.getDefault().post(user);
-        }
         //根据上一次记录，选择显示Fragment
         int anInt = SharePreferencesUtils.getInt(this, MainConstant.CURRENT_MAIN_FRAGMENT, 0);
         switch (anInt){

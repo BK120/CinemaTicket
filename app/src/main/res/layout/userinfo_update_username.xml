@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_height="45dp"
+        android:layout_width="match_parent"
+        android:background="@color/colorBlue"
+        android:textColor="@color/colorRed"
+        android:textSize="18sp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="修改用户名"
+        />
+    <LinearLayout
+    android:layout_height="50dp"
+    android:layout_width="300dp"
+    android:orientation="horizontal"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginTop="30dp"
+    android:background="@drawable/addressactivity_searchbtn_shape"
+    >
+    <TextView
+        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:text="用户名:"
+        android:textSize="18sp"
+        android:textColor="#ea8010"
+        android:layout_gravity="center_vertical"
+        android:gravity="center"
+        android:drawableLeft="@mipmap/user"
+        />
+    <EditText
+        android:layout_height="50dp"
+        android:layout_width="match_parent"
+        android:textSize="18sp"
+        android:singleLine="true"
+        android:maxLength="10"
+        android:layout_gravity="center_vertical"
+        android:textColor="@color/colorGray"
+        android:id="@+id/userinfodialog_updateusername_et"
+        android:background="@drawable/addressactivity_searchbtn_shape"
+        />
+</LinearLayout>
+    <LinearLayout
+        android:layout_height="45dp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="25dp"
+        >
+        <Button
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:text="取消"
+            android:background="@drawable/addressactivity_searchbtn_selector"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:id="@+id/userinfodialog_updateusername_cancle_btn"
+            android:textColor="@color/colorGray"
+            />
+        <View
+            android:layout_height="40dp"
+            android:layout_width="1dp"
+            android:layout_gravity="center"
+            android:background="@color/colorBlack"
+            />
+        <Button
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:text="确定"
+            android:background="@drawable/addressactivity_searchbtn_selector"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:id="@+id/userinfodialog_updateusername_confirm_btn"
+            android:textColor="@color/colorWhite"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>
