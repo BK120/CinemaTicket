@@ -65,9 +65,11 @@ public class WodeFragment extends Fragment implements View.OnClickListener{
         //获取一个在线的人
         if (user==null){
             user_status_tv.setText("立即登录");
+            user_icon_iv.setImageResource(R.mipmap.touxiang_outline);
         }else {
             user_status_tv.setText(user.getUsername());
             yue_tv.setText(user.getBalance()+"元");
+            user_icon_iv.setImageResource(R.mipmap.touxiang_online);
         }
     }
     //设置监听
