@@ -33,6 +33,17 @@ public class MyOpenHelper extends SQLiteOpenHelper{
         String user_sqlTable="create table user_info(_id Integer " +
                 "primary key autoincrement,username,password,status,balance,motto,isRememberPWD,isAutoLogin)";
         db.execSQL(user_sqlTable);
+        /**
+         *_id 主键  自动增长
+         * hostName 卡的拥有者，String 唯一
+         * cardName  卡号名别名  String
+         * type 账户类型农行、建行、工行、微信、支付宝、QQ等 int  0~5
+         * bgColor  账户背景颜色  int 0~5
+         * balance  当前账户余额  double
+         */
+        String card_sqlTable="create table card_info(_id Integer primary key autoincrement," +
+                "hostName,cardName,type,bgColor,balance)";
+        db.execSQL(card_sqlTable);
     }
 
     @Override

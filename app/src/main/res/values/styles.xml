@@ -4,5 +4,10 @@
     <style name="AppTheme" parent="android:Theme.Holo.Light.NoActionBar">
         <!-- Customize your theme here. -->
     </style>
+    <!-- pupupwindow的弹出和消失动画 -->
+    <style name="popup_window_anim">
+        <item name="android:windowEnterAnimation">@anim/pop_in</item>
+        <item name="android:windowExitAnimation">@anim/pop_out</item>
+    </style>
 
 </resources>

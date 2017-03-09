@@ -21,6 +21,12 @@ public class MainConstant {
     //账户背景颜色数组
     public static int[] CARD_BG={R.color.card_bg_blue,R.color.card_bg_brown,R.color.card_bg_green,
     R.color.card_bg_red,R.color.card_bg_yale,R.color.card_bg_yellow};
+    //账户类型
+    public static String[] CARD_TYPE={"QQ","建行","农行","工行","微信","支付宝"};
+    //设定个人账户最多个数
+    public static int CARDMAX=10;
+    //每次添加的账户钱的最大值
+    public static double BALANCEMAX=200;
 
 
 }

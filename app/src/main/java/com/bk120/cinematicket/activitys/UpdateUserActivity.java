@@ -2,7 +2,6 @@ package com.bk120.cinematicket.activitys;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -49,7 +48,7 @@ public class UpdateUserActivity extends Activity {
     //修改用户名
     public void updateUserName(View view){
         AlertDialog.Builder builder=new AlertDialog.Builder(this);
-        View childView=View.inflate(this,R.layout.userinfo_update_username,null);
+        View childView=View.inflate(this,R.layout.userinfo_update_username_dialog,null);
         builder.setView(childView);
         builder.setCancelable(false);
         final AlertDialog dialog = builder.create();
@@ -85,7 +84,7 @@ public class UpdateUserActivity extends Activity {
     //修改签名
     public void updateMotto(View view){
         AlertDialog.Builder builder=new AlertDialog.Builder(this);
-        View childView=View.inflate(this,R.layout.userinfo_update_motto,null);
+        View childView=View.inflate(this,R.layout.userinfo_update_motto_dialog,null);
         builder.setView(childView);
         builder.setCancelable(false);
         final AlertDialog dialog = builder.create();
@@ -121,7 +120,7 @@ public class UpdateUserActivity extends Activity {
     public void updatePassword(View view){
         //弹出Dialog修改密码
         AlertDialog.Builder builder=new AlertDialog.Builder(this);
-        View childView=View.inflate(this,R.layout.userinfo_update_passwod,null);
+        View childView=View.inflate(this,R.layout.userinfo_update_passwod_dialog,null);
         builder.setView(childView);
         builder.setCancelable(false);
         final AlertDialog dialog = builder.create();

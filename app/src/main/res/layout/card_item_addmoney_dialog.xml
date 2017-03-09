@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_height="40dp"
+        android:layout_width="match_parent"
+        android:textColor="@color/colorRed"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:text="账户充值"
+        android:background="@color/colorBlue"
+        />
+
+    <EditText
+        android:layout_height="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_width="wrap_content"
+        android:ems="10"
+        android:maxLength="5"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/card_addmoney_et"
+        android:background="@drawable/card_update_item_shape"
+        />
+    <LinearLayout
+        android:layout_height="45dp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="25dp"
+        >
+        <Button
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:text="取消"
+            android:background="@drawable/addressactivity_searchbtn_selector"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:id="@+id/addmoneydialog_cancle_btn"
+            android:textColor="@color/colorGray"
+            />
+        <View
+            android:layout_height="40dp"
+            android:layout_width="1dp"
+            android:layout_gravity="center"
+            android:background="@color/colorBlack"
+            />
+        <Button
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:text="确定"
+            android:background="@drawable/addressactivity_searchbtn_selector"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:id="@+id/addmoneydialog_confirm_btn"
+            android:textColor="@color/colorWhite"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

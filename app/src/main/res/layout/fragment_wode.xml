@@ -301,7 +301,7 @@
                     android:layout_alignRight="@id/wodefragment_yue_rl_arrow"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="30dp"
-                    android:textColor="#a9b7b7"
+                    android:textColor="@color/card_bg_red"
                     android:textSize="14sp"
                     />
             </RelativeLayout>

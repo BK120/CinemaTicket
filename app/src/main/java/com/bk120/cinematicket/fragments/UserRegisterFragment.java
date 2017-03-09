@@ -12,10 +12,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.bk120.cinematicket.R;
+import com.bk120.cinematicket.bean.Card;
 import com.bk120.cinematicket.bean.RegisterSuccessSign;
 import com.bk120.cinematicket.bean.StringSign;
 import com.bk120.cinematicket.bean.User;
 import com.bk120.cinematicket.constants.MainConstant;
+import com.bk120.cinematicket.db.CardInfoDao;
 import com.bk120.cinematicket.db.UserInfoDao;
 
 import org.greenrobot.eventbus.EventBus;
@@ -94,6 +96,8 @@ public class UserRegisterFragment extends Fragment implements View.OnClickListen
                 user1.setMotto("Hello BK票儿！");
                 user1.setStatus("0");
                 dao.insert(user1);
+                //同时初始化该用户的几张卡的信息
+                initCard(username);
                 //发送信号
                 EventBus.getDefault().post(new StringSign("RegisterSuccess"));
                 EventBus.getDefault().post(new RegisterSuccessSign(username,password));
@@ -101,6 +105,16 @@ public class UserRegisterFragment extends Fragment implements View.OnClickListen
                 password_et.setText("");
                 confirmPWD_et.setText("");
                 break;
+        }
+    }
+    //初始化用户的卡信息
+    private void initCard(String username) {
+        CardInfoDao dao=new CardInfoDao(getContext());
+        for (int i=0;i<MainConstant.CARDMONEYS.length;i++){
+            Card card=new Card(username,i,MainConstant.CARDMONEYS[i]);
+            card.setBgColor(i);
+            card.setCardName(username);
+            dao.insert(card);
         }
     }
 }
