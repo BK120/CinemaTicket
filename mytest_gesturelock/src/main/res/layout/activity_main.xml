@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@mipmap/bg2"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.bk120.mytest_gesturelock.MainActivity">
+    <TextView
+        android:layout_height="45dp"
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:textColor="#f00"
+        android:text="输入密码"
+        android:textSize="18sp"
+        android:id="@+id/tv"
+        />
+    <com.bk120.mytest_gesturelock.gesture.GestureLockViewGroup
+        android:layout_height="250dp"
+        android:layout_width="250dp"
+        android:layout_marginTop="80dp"
+        android:layout_centerHorizontal="true"
+        app:color_finger_on="#31CB4D"
+        app:color_no_finger_inner_circle="#A2507E"
+        app:color_no_finger_outer_circle="#79D65A"
+        app:color_finger_up="#F5503B"
+        app:tryTimes="3"
+        android:id="@+id/gs"
+        />
+
+</RelativeLayout>
