@@ -17,7 +17,7 @@ public class MainConstant {
     //顺序，建行，农行，工行，微信，QQ，支付宝
     public static double[] CARDMONEYS={1800,20,101,35.56,28.11,300};
     //存放该账户的余额,注册时就赋值
-    public static double USERMONEY=36.00;
+    public static double USERMONEY=6.66;
     //账户背景颜色数组
     public static int[] CARD_BG={R.color.card_bg_blue,R.color.card_bg_brown,R.color.card_bg_green,
     R.color.card_bg_red,R.color.card_bg_yale,R.color.card_bg_yellow};
@@ -27,6 +27,9 @@ public class MainConstant {
     public static int CARDMAX=10;
     //每次添加的账户钱的最大值
     public static double BALANCEMAX=200;
+    //充值账户余额界面的Gallery里面的电影海报图
+    public static int[] GALLERIMAGES={R.mipmap.gallery0,R.mipmap.gallery1,R.mipmap.gallery2,R.mipmap.gallery3,
+    R.mipmap.gallery4};
 
 
 }

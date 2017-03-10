@@ -66,7 +66,7 @@ public class AddCardFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        EventBus.getDefault().register(this);
+        EventBus.getDefault().unregister(this);
     }
     //更新cardList集合，在每次删除账号或添加账号时
     @Subscribe(threadMode = ThreadMode.MAIN)

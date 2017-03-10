@@ -14,7 +14,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bk120.cinematicket.R;
+import com.bk120.cinematicket.activitys.BalanceActivity;
 import com.bk120.cinematicket.activitys.LoginRegisterActivity;
+import com.bk120.cinematicket.activitys.SettingActivity;
 import com.bk120.cinematicket.activitys.UpdateUserActivity;
 import com.bk120.cinematicket.activitys.WalletActivity;
 import com.bk120.cinematicket.bean.StringSign;
@@ -66,6 +68,7 @@ public class WodeFragment extends Fragment implements View.OnClickListener{
         if (user==null){
             user_status_tv.setText("立即登录");
             user_icon_iv.setImageResource(R.mipmap.touxiang_outline);
+            yue_tv.setText("0.00元");
         }else {
             user_status_tv.setText(user.getUsername());
             yue_tv.setText(user.getBalance()+"元");
@@ -147,7 +150,13 @@ public class WodeFragment extends Fragment implements View.OnClickListener{
                 break;
             case R.id.wodefragment_yue_rl:
                 //进入余额设置部分功能  隐藏余额
-                Toast.makeText(getContext(),"功能未开启!敬请期待!",Toast.LENGTH_SHORT).show();
+                if (user==null){
+                    showLoginAndRegister();
+                }else {
+                    //进入查看钱包页面
+                    Intent i=new Intent(getContext(), BalanceActivity.class);
+                    startActivity(i);
+                }
                 break;
             case R.id.wodefragment_daifukuan:
                 //待付款
@@ -207,7 +216,13 @@ public class WodeFragment extends Fragment implements View.OnClickListener{
                 break;
             case R.id.wodefragment_shezhi_rl:
                 //设置
-                Toast.makeText(getContext(),"功能未开启!敬请期待!",Toast.LENGTH_SHORT).show();
+                if (user==null){
+                    showLoginAndRegister();
+                }else {
+                    //进入查看钱包页面
+                    Intent i=new Intent(getContext(), SettingActivity.class);
+                    startActivity(i);
+                }
                 break;
             default:
                 Toast.makeText(getContext(),"功能未开启!敬请期待!",Toast.LENGTH_SHORT).show();

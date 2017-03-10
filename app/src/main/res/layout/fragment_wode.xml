@@ -245,7 +245,7 @@
             android:layout_marginTop="15dp"
             >
             <RelativeLayout
-                android:layout_height="35dp"
+                android:layout_height="40dp"
                 android:layout_width="match_parent"
                 android:id="@+id/wodefragment_wodeqianbao_rl"
                 >
@@ -272,7 +272,7 @@
                 android:background="#DEDBDB"
                 />
             <RelativeLayout
-                android:layout_height="35dp"
+                android:layout_height="40dp"
                 android:layout_width="match_parent"
                 android:id="@+id/wodefragment_yue_rl"
                 >
@@ -311,7 +311,7 @@
                 android:background="#DEDBDB"
                 />
             <RelativeLayout
-                android:layout_height="35dp"
+                android:layout_height="40dp"
                 android:layout_width="match_parent"
                 android:id="@+id/wodefragment_youhuijuan_rl"
                 >
@@ -338,7 +338,7 @@
                 android:background="#DEDBDB"
                 />
             <RelativeLayout
-                android:layout_height="35dp"
+                android:layout_height="40dp"
                 android:layout_width="match_parent"
                 android:id="@+id/wodefragment_shangcheng_rl"
                 >
@@ -369,7 +369,7 @@
             android:layout_marginTop="15dp"
             >
             <RelativeLayout
-                android:layout_height="35dp"
+                android:layout_height="40dp"
                 android:layout_width="match_parent"
                 android:id="@+id/wodefragment_wodexiaoxi_rl"
                 >
@@ -396,7 +396,7 @@
                 android:background="#DEDBDB"
                 />
             <RelativeLayout
-                android:layout_height="35dp"
+                android:layout_height="40dp"
                 android:layout_width="match_parent"
                 android:id="@+id/wodefragment_wodeshouchang_rl"
                 >
@@ -423,7 +423,7 @@
                 android:background="#DEDBDB"
                 />
             <RelativeLayout
-                android:layout_height="35dp"
+                android:layout_height="40dp"
                 android:layout_width="match_parent"
                 android:id="@+id/wodefragment_huiyuanzhongxing_rl"
                 >
@@ -450,7 +450,7 @@
                 android:background="#DEDBDB"
                 />
             <RelativeLayout
-                android:layout_height="35dp"
+                android:layout_height="40dp"
                 android:layout_width="match_parent"
                 android:id="@+id/wodefragment_wodeshenghuo_rl"
                 >

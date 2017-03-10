@@ -29,8 +29,6 @@
             android:gravity="center"
             android:textColor="#ffffff"
             />
-
-
     </RelativeLayout>
     <EditText
         android:layout_width="match_parent"

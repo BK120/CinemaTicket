@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_height="40dp"
+        android:layout_width="match_parent"
+        >
+        <ImageView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/addbalancerecycleview_item_iv"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/money"
+            android:layout_marginLeft="10dp"
+            />
+        <TextView
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:text="BK120"
+            android:layout_alignLeft="@id/addbalancerecycleview_item_iv"
+            android:layout_marginLeft="45dp"
+            android:textSize="16sp"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:id="@+id/addbalancerecycleview_item_cardname_tv"
+            android:textColor="@color/colorPurple"
+            />
+        <ImageView
+            android:layout_height="20dp"
+            android:layout_width="20dp"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            android:src="@mipmap/chicked"
+            android:id="@+id/addbalanceactivty_chicked_iv"
+            />
+        <TextView
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:textSize="14sp"
+            android:text="36.55元"
+            android:textColor="@color/colorPurple"
+            android:layout_centerVertical="true"
+            android:id="@+id/addbalancerecycleview_item_money_tv"
+            android:gravity="center"
+
+            />
+
+    </RelativeLayout>
+
+</LinearLayout>

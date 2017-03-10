@@ -27,9 +27,17 @@
         </activity>
         <activity android:name=".activitys.AddressActivity" />
         <activity android:name=".activitys.PlayFilmActivity" />
-        <activity android:name=".activitys.LoginRegisterActivity"></activity>
+        <activity android:name=".activitys.LoginRegisterActivity" />
         <activity android:name=".activitys.UpdateUserActivity" />
-        <activity android:name=".activitys.WalletActivity"></activity>
+        <activity android:name=".activitys.WalletActivity" />
+        <activity android:name=".activitys.BalanceActivity" />
+        <activity
+            android:name=".activitys.AddBalanceActivity"
+            android:theme="@style/Theme.AppCompat.Dialog" />
+        <activity
+            android:name=".activitys.GetBalanceActivity"
+            android:theme="@style/Theme.AppCompat.Dialog" />
+        <activity android:name=".activitys.SettingActivity"></activity>
     </application>
 
 </manifest>
