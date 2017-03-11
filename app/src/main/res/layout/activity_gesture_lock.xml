@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bg2"
+    tools:context="com.bk120.cinematicket.activitys.GestureLockActivity">
+    <RelativeLayout
+        android:layout_height="45dp"
+        android:layout_width="match_parent"
+        android:background="#1F9BEA"
+        >
+        <ImageView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:src="@mipmap/back"
+            android:onClick="back"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            />
+        <TextView
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:text="输入密码"
+            android:textSize="18sp"
+            android:layout_marginLeft="100dp"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="25dp"
+        android:text="输入手势密码"
+        android:id="@+id/gestureactivity_tv"
+        android:textSize="18sp"
+        android:textColor="@color/colorPrimary"
+        />
+    <com.bk120.cinematicket.gesture.GestureLockViewGroup
+        android:layout_height="200dp"
+        android:layout_width="200dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:id="@+id/gestureactivity_gv"
+        app:color_finger_on="#31CB4D"
+        app:color_finger_up="#F5503B"
+        app:color_no_finger_inner_circle="#A2507E"
+        app:color_no_finger_outer_circle="#79D65A"
+        app:count="3"
+        />
+
+
+</LinearLayout>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="300dp"
+    android:background="@drawable/card_update_item_shape"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_height="200dp"
+        android:layout_width="match_parent"
+        >
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:id="@+id/aboutme_item_tc"
+            android:textColor="@color/colorPurple"
+            />
+    </ScrollView>
+    <View
+        android:layout_height="2dp"
+        android:layout_width="match_parent"
+        android:background="@color/colorGray"
+        />
+    <TextView
+        android:layout_height="40dp"
+        android:layout_width="wrap_content"
+        android:autoLink="web"
+        android:textSize="16sp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:background="#00000000"
+        android:id="@+id/aboutme_item_btn"
+        android:text="https://github.com/BK120/CinemaTicket.git"
+        />
+
+</LinearLayout>

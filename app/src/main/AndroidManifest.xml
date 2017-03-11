@@ -37,7 +37,10 @@
         <activity
             android:name=".activitys.GetBalanceActivity"
             android:theme="@style/Theme.AppCompat.Dialog" />
-        <activity android:name=".activitys.SettingActivity"></activity>
+        <activity android:name=".activitys.SettingActivity" />
+        <activity android:name=".activitys.GestureLockActivity">
+
+        </activity>
     </application>
 
 </manifest>

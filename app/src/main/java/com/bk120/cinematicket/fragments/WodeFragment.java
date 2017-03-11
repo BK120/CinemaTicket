@@ -15,13 +15,16 @@ import android.widget.Toast;
 
 import com.bk120.cinematicket.R;
 import com.bk120.cinematicket.activitys.BalanceActivity;
+import com.bk120.cinematicket.activitys.GestureLockActivity;
 import com.bk120.cinematicket.activitys.LoginRegisterActivity;
 import com.bk120.cinematicket.activitys.SettingActivity;
 import com.bk120.cinematicket.activitys.UpdateUserActivity;
 import com.bk120.cinematicket.activitys.WalletActivity;
 import com.bk120.cinematicket.bean.StringSign;
 import com.bk120.cinematicket.bean.User;
+import com.bk120.cinematicket.constants.MainConstant;
 import com.bk120.cinematicket.db.UserInfoDao;
+import com.bk120.cinematicket.utils.SharePreferencesUtils;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -71,7 +74,14 @@ public class WodeFragment extends Fragment implements View.OnClickListener{
             yue_tv.setText("0.00元");
         }else {
             user_status_tv.setText(user.getUsername());
-            yue_tv.setText(user.getBalance()+"元");
+            //是否隐藏
+            boolean aBoolean = SharePreferencesUtils.getBoolean(getContext(), MainConstant.IS_HIDE_MONEY, false);
+            if (aBoolean){
+                yue_tv.setText("**.**元");
+            }else {
+                yue_tv.setText(user.getBalance()+"元");
+            }
+
             user_icon_iv.setImageResource(R.mipmap.touxiang_online);
         }
     }
@@ -154,8 +164,14 @@ public class WodeFragment extends Fragment implements View.OnClickListener{
                     showLoginAndRegister();
                 }else {
                     //进入查看钱包页面
-                    Intent i=new Intent(getContext(), BalanceActivity.class);
-                    startActivity(i);
+                    boolean aBoolean = SharePreferencesUtils.getBoolean(getContext(), MainConstant.IS_OPEN_GESTURE, false);
+                    if (aBoolean){
+                        Intent i = new Intent(getContext(), GestureLockActivity.class);
+                        startActivity(i);
+                    }else {
+                        Intent i = new Intent(getContext(), BalanceActivity.class);
+                        startActivity(i);
+                    }
                 }
                 break;
             case R.id.wodefragment_daifukuan:

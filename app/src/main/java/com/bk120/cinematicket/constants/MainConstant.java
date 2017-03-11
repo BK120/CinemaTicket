@@ -30,6 +30,16 @@ public class MainConstant {
     //充值账户余额界面的Gallery里面的电影海报图
     public static int[] GALLERIMAGES={R.mipmap.gallery0,R.mipmap.gallery1,R.mipmap.gallery2,R.mipmap.gallery3,
     R.mipmap.gallery4};
+    //未设置，默认的手势密码
+    public static int[] GESTURE_NUMBER={1,4,7,8,9};
+    //手势密码存储在SharePrefernce中
+    public static String GESTURE_LOCK="gesture_lock";
+    //是否开启手势密码
+    public static String IS_OPEN_GESTURE="is_open_gesture";
+    //是否开启隐藏金额
+    public static String IS_HIDE_MONEY="is_hide_money";
+    //本项目GitHub地址
+    public static String PROJECT_GITHUB_URL="https://github.com/BK120/CinemaTicket.git";
 
 
 }

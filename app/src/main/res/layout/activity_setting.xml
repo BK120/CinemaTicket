@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:background="@mipmap/bg2"
+    android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context="com.bk120.cinematicket.activitys.SettingActivity">
     <RelativeLayout
@@ -29,6 +30,88 @@
             android:textColor="#ffffff"
             />
     </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_height="45dp"
+        android:layout_width="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/card_update_item_shape"
+        >
+        <TextView
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:text="开启手势密码"
+            android:gravity="center"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/colorPurple"
+            android:textSize="18sp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="20dp" />
+        <ToggleButton
+            android:layout_height="40dp"
+            android:layout_width="wrap_content"
+            android:textColor="@color/colorPurple"
+            android:textSize="18sp"
+            android:layout_centerVertical="true"
+            android:id="@+id/settingactivity_opengesturelock_togglebutton"
+            android:textOn=""
+            android:background="@drawable/setting_activity_gesture_swich"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:textOff=""
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_height="45dp"
+        android:layout_width="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/card_update_item_shape"
+        >
+        <TextView
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:text="隐藏余额"
+            android:gravity="center"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/colorPurple"
+            android:textSize="18sp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="20dp" />
+        <ToggleButton
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:textColor="@color/colorPurple"
+            android:textSize="18sp"
+            android:id="@+id/settingactivity_hidemoney_togglebutton"
+            android:textOn=""
+            android:background="@drawable/setting_activity_gesture_swich"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:textOff=""
+            />
+</RelativeLayout>
+
+    <RelativeLayout
+        android:layout_height="45dp"
+        android:layout_width="match_parent"
+        android:background="@drawable/card_update_item_shape"
+        android:layout_marginTop="20dp"
+        ><Button
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:text="关于我们"
+        android:layout_gravity="center_horizontal"
+        android:textSize="18sp"
+        android:onClick="myInfo"
+        android:textColor="@color/card_bg_red"
+        /></RelativeLayout>
 
 
 </LinearLayout>
