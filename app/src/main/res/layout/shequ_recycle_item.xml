@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/card_update_item_shape"
+        >
+        <LinearLayout
+            android:layout_height="40dp"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            >
+            <ImageView
+                android:layout_height="35dp"
+                android:layout_width="35dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="2dp"
+                android:layout_gravity="center_vertical"
+                android:src="@mipmap/comment_icon1"
+                android:id="@+id/shequ_recycleview_item_icon"
+                />
+            <View
+                android:layout_height="25dp"
+                android:layout_gravity="center_vertical"
+                android:layout_width="1dp"
+                android:layout_marginLeft="5dp"
+                android:background="@color/colorGray"
+                />
+            <TextView
+                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:textColor="@color/colorPurple"
+                android:textSize="16sp"
+                android:id="@+id/shequ_recycleview_item_name"
+                android:layout_marginLeft="5dp"
+                android:text="三月的大太阳"
+                android:layout_gravity="clip_vertical"
+                android:gravity="center_vertical"
+                />
+
+        </LinearLayout>
+        <View
+            android:layout_height="1dp"
+            android:layout_gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:background="@color/colorGray"
+            android:layout_marginTop="2dp"
+            />
+        <TextView
+            android:layout_height="50dp"
+            android:layout_marginTop="3dp"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/shequ_recycleview_item_describe"
+            android:textColor="@color/colorGray"
+            android:text="电影省防静电服好难看收到回复可接受的和福克斯的好方法死读书，大会的撒谎的大数据和对于哦啊是。"
+            android:textSize="14sp"
+            />
+        <View
+            android:layout_height="1dp"
+            android:layout_gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:background="@color/colorGray"
+            />
+        <RelativeLayout
+            android:layout_height="30dp"
+            android:layout_width="match_parent"
+            >
+            <TextView
+                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:textColor="@color/colorPurple"
+                android:textSize="14sp"
+                android:text="2016年01月15日"
+                android:layout_marginLeft="10dp"
+                android:gravity="center_vertical"
+                android:id="@+id/shequ_recycleview_item_time"
+                />
+            <ImageView
+                android:layout_height="25dp"
+                android:src="@mipmap/delete"
+                android:id="@+id/shequ_recycleview_item_delete"
+                android:layout_width="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,1 +1,1 @@
-include ':app', ':mytest_cehuacaidan', ':mytest_constraintlayout'
+include ':app', ':mytest_cehuacaidan', ':mytest_constraintlayout', ':mytest_gesturelock'
