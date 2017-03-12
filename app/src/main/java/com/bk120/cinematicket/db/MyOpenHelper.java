@@ -44,6 +44,17 @@ public class MyOpenHelper extends SQLiteOpenHelper{
         String card_sqlTable="create table card_info(_id Integer primary key autoincrement," +
                 "hostName,cardName,type,bgColor,balance)";
         db.execSQL(card_sqlTable);
+        /**
+         * 电影评论的表
+         * _id 主键  自动增长
+         * name  发表评论的用户名  String
+         * icon  用户头像   内置  int
+         * decribe  影评描述  String
+         * time  发表评论的时间  String
+         */
+        String comment_sqlTable="create table comment_info(_id Integer primary key autoincrement,name," +
+                "icon,describe,time)";
+        db.execSQL(comment_sqlTable);
     }
 
     @Override
