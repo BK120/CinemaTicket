@@ -1,6 +1,7 @@
 package com.bk120.cinematicket.fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,6 +15,8 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.bk120.cinematicket.R;
+import com.bk120.cinematicket.activitys.AddCommentActivity;
+import com.bk120.cinematicket.activitys.LoginRegisterActivity;
 import com.bk120.cinematicket.adapter.SheQuAdapter;
 import com.bk120.cinematicket.bean.Comment;
 import com.bk120.cinematicket.bean.User;
@@ -66,10 +69,20 @@ public class SheQuFragment extends Fragment {
 
     //初始化数据
     private void initData() {
+        uDao=new UserInfoDao(getContext());
+        user=uDao.selectOnLine();
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(),"功能未开放",Toast.LENGTH_SHORT).show();
+                if (uDao==null){
+                    //登录注册界面
+                    Intent i=new Intent(getContext(), LoginRegisterActivity.class);
+                    startActivity(i);
+                }else {
+                    //添加评论
+                    Intent i=new Intent(getContext(), AddCommentActivity.class);
+                    startActivity(i);
+                }
             }
         });
     }

@@ -60,5 +60,10 @@ public class MainConstant {
             "张一白老师创造了中国广告界的一座里程碑。他让众多明星联袂拍摄了一个多种品牌混搭跨界的广告长片，还让这个广告登上了大银幕，并且还需要人们买票观看，颠覆了广告一向是免费的low逼形象，为广告这个边缘创意产业赢得了尊严。"
     };
     public static String[] COMMENT_TIME={"2014年02年23日","2011月05年20日","2012年02月15日","2016年10月18日","2016年05月05日","2016年11月23日","2017年02月12日","2017年01月22日","2013年06月08日"};
+    //所有评论的用户头像库
+    public static int[] COMMENT_ICON_LIBRARY={R.mipmap.i0,R.mipmap.i1,R.mipmap.i2,R.mipmap.i3,R.mipmap.i4,
+            R.mipmap.i5,R.mipmap.i6,R.mipmap.i7,R.mipmap.i8,R.mipmap.i9,R.mipmap.i10,R.mipmap.i11,R.mipmap.i12,
+            R.mipmap.i13,R.mipmap.i14,R.mipmap.i15,R.mipmap.i16,R.mipmap.i17,R.mipmap.i18,R.mipmap.i19,R.mipmap.i20,
+            R.mipmap.i22,R.mipmap.i21};
 
 }
