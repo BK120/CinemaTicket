@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:background="#8EF7AF"
+    android:orientation="vertical"
+    android:layout_height="match_parent" tools:context="com.bk120.mytest_baidumap.MainActivity">
+    <TextView
+        android:inputType="textMultiLine"
+        android:layout_height="300dp"
+        android:hint="位置结果信息..."
+        android:maxLines="15"
+        android:textSize="16sp"
+        android:id="@+id/result_tv"
+        android:textColor="#f00"
+        android:layout_width="match_parent"
+        />
+    <Button
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="开启"
+        android:onClick="start"
+        />
+    <Button
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="关闭"
+        android:onClick="stop"
+        />
+</LinearLayout>
