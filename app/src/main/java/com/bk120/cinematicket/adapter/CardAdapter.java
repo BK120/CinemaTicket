@@ -122,6 +122,8 @@ public class CardAdapter extends RecyclerView.Adapter{
                 //发出信号
                 EventBus.getDefault().post(new StringSign("AddCard Success"));
                 EventBus.getDefault().post(new StringSign("UpdateCardList"));
+                list.remove(position);
+                CardAdapter.this.notifyItemRangeChanged(position, CardAdapter.this.getItemCount());
                 window.dismiss();
             }
         });

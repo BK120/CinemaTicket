@@ -15,7 +15,7 @@
             android:id="@+id/mainactivity_dianying_fragment_toolbar_address"
             android:textSize="18sp"
             android:textColor="#fff"
-            android:text="上海"
+            android:text="定位..."
             android:layout_marginLeft="5dp"
             android:layout_centerVertical="true"
             android:background="#00000000"

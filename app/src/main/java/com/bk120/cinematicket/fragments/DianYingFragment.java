@@ -19,6 +19,7 @@ import com.bk120.cinematicket.R;
 import com.bk120.cinematicket.activitys.AddressActivity;
 import com.bk120.cinematicket.adapter.DianYingPageAdapter;
 import com.bk120.cinematicket.bean.AddressBean;
+import com.bk120.cinematicket.utils.BaiBuDingWeiUtils;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -26,6 +27,7 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
+import android.os.Handler;
 
 
 /**
@@ -39,6 +41,9 @@ public class DianYingFragment extends Fragment {
     //地址空间
     Button addressBtn;
     private View rootView;
+    //当前地址默认上海
+    private String currentAddress="定位...";
+    private BaiBuDingWeiUtils utils;
     public DianYingFragment(){
     }
 
@@ -51,6 +56,7 @@ public class DianYingFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        utils=new BaiBuDingWeiUtils(getContext());
         rootView=inflater.inflate(R.layout.fragment_dian_ying, container, false);
         reyingTv= (TextView) rootView.findViewById(R.id.mainactivity_dianying_fragment_toolbar_reying);
         zhaopianTv= (TextView) rootView.findViewById(R.id.mainactivity_dianying_fragment_toolbar_zhaopian);
@@ -58,8 +64,50 @@ public class DianYingFragment extends Fragment {
         mViewPager= (ViewPager) rootView.findViewById(R.id.mainactivity_dianying_fragment_viewpager);
         initViewPager();
         initToolBarItem();
+        setListener();
         return rootView;
     }
+
+    private void setListener() {
+        utils.setListener(new BaiBuDingWeiUtils.BaiDuDingWeiListener() {
+            @Override
+            public void getTime(String time) {
+            }
+            @Override
+            public void getLatitude(String latitude) {
+            }
+            @Override
+            public void getLontitude(String lontitude) {
+            }
+            @Override
+            public void getRadius(String radius) {
+            }
+            @Override
+            public void getAddress(String address) {
+                //截取地址  山西省太原市   省与市之间的数字
+                int first=address.indexOf("省");
+                int end = address.indexOf("市");
+                String newOne = address.substring(first+1, end);
+                currentAddress=newOne;
+            }
+            @Override
+            public void getLocationDes(String des) {
+            }
+            @Override
+            public void error(String s) {
+                currentAddress="失败";
+            }
+        });
+        utils.start();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                utils.stop();
+                EventBus.getDefault().post(new AddressBean(currentAddress));
+            }
+        },1500);
+    }
+
     //初始化toolbar上面的拖动条,注册监听
     private void initToolBarItem() {
         reyingTv.setOnClickListener(new View.OnClickListener() {
@@ -136,6 +184,7 @@ public class DianYingFragment extends Fragment {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void setAddress(AddressBean bean){
         String address=bean.getAddress();
+        currentAddress=address;
         if (address.length()>2){
             String newAddress=address.substring(0,2)+"..";
             addressBtn.setText(newAddress);

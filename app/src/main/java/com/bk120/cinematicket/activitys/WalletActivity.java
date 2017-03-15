@@ -1,6 +1,7 @@
 package com.bk120.cinematicket.activitys;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
@@ -76,7 +77,8 @@ public class WalletActivity extends FragmentActivity {
     private void initRecycleView() {
         LinearLayoutManager manager=new LinearLayoutManager(this);
         recyclerView.setLayoutManager(manager);
-        recyclerView.addItemDecoration(new RecycleViewDividerL(this,LinearLayout.VERTICAL));
+        RecycleViewDividerL dividerL=new RecycleViewDividerL(this,LinearLayout.VERTICAL,10, Color.parseColor("#00000000"));
+        recyclerView.addItemDecoration(dividerL);
         lists=cDao.selectAll(user.getUsername());
         adpter=new CardAdapter(lists,this);
         recyclerView.setAdapter(adpter);

@@ -24,6 +24,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets {
+        main() {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
 }
 
 dependencies {
@@ -39,6 +44,7 @@ dependencies {
     //事件分发框架
     //网络访问框架
     //图片加载框架
+    compile files('libs/BaiduLBS_Android.jar')
     compile 'com.android.support:support-v4:25.2.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha9'
     compile 'com.jakewharton:butterknife:8.5.1'

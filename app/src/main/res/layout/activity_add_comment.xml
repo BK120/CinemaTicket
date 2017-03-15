@@ -91,6 +91,17 @@
         <TextView
             android:layout_height="30dp"
             android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:textSize="14sp"
+            android:textColor="@color/colorPurple"
+            android:text="定位中....."
+            android:gravity="center"
+            android:layout_marginLeft="100dp"
+            android:id="@+id/addcommentactivity_address"
+            />
+        <TextView
+            android:layout_height="30dp"
+            android:layout_width="wrap_content"
             android:textColor="#33475f"
             android:text="公开"
             android:id="@+id/addcommentactivity_gongkai_tv"
@@ -112,7 +123,7 @@
             android:id="@+id/addcommentactivity_content_number_tv"
             android:layout_alignRight="@id/addcommentactivity_gongkai_tv"
             android:layout_centerVertical="true"
-            android:layout_marginRight="70dp"
+            android:layout_marginRight="60dp"
             android:gravity="center_vertical"
             />
     </RelativeLayout>

@@ -74,7 +74,7 @@ public class SheQuFragment extends Fragment {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (uDao==null){
+                if (user==null){
                     //登录注册界面
                     Intent i=new Intent(getContext(), LoginRegisterActivity.class);
                     startActivity(i);
