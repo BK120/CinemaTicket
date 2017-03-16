@@ -46,6 +46,28 @@ public class NetWorkUtil {
         }
         return false;
     }
+
+    /**
+     * 获取当前网络是否可用
+     * @param context
+     * @return
+     */
+    public static boolean isNetWorkAvaliable(Context context){
+        ConnectivityManager mcManager= (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if(mcManager==null){
+            return false;
+        }
+        NetworkInfo[] infos = mcManager.getAllNetworkInfo();
+        if(infos!=null&&infos.length>0){
+            for(int i=0;i<infos.length;i++){
+                if(infos[i].getState()==NetworkInfo.State.CONNECTED){
+                    //已经连接
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
     public static String getIpAddress(Context mContext){
         NetworkInfo info = ((ConnectivityManager) mContext
                 .getSystemService(Context.CONNECTIVITY_SERVICE)).getActiveNetworkInfo();

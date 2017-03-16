@@ -16,6 +16,7 @@ import com.bk120.cinematicket.fragments.DianYingFragment;
 import com.bk120.cinematicket.fragments.SheQuFragment;
 import com.bk120.cinematicket.fragments.WodeFragment;
 import com.bk120.cinematicket.fragments.YingYuanFragment;
+import com.bk120.cinematicket.utils.NetWorkUtil;
 import com.bk120.cinematicket.utils.SharePreferencesUtils;
 
 import org.greenrobot.eventbus.EventBus;
@@ -60,6 +61,15 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         super.onResume();
         initShow();
     }
+    //判断网络状态
+    public void initNetWork(){
+        boolean netWorkAvaliable = NetWorkUtil.isNetWorkAvaliable(this);
+        if (netWorkAvaliable){
+            EventBus.getDefault().post(new StringSign("NetOn"));
+        }else {
+            EventBus.getDefault().post(new StringSign("NetOff"));
+        }
+    }
     //开始显示
     private void initShow() {
         //根据上一次记录，选择显示Fragment
@@ -70,6 +80,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 break;
             case 1:
                 showDianYingYuanFragment();
+                initNetWork();
                 break;
             case 2:
                 showSheQuFragment();
@@ -106,6 +117,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 SharePreferencesUtils.putInt(this, MainConstant.CURRENT_MAIN_FRAGMENT,0);
                  break;
             case R.id.mainactivity_yingyuan:
+                initNetWork();
                 showDianYingYuanFragment();
                 SharePreferencesUtils.putInt(this, MainConstant.CURRENT_MAIN_FRAGMENT,1);
                 break;

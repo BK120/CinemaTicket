@@ -130,7 +130,7 @@ public class DianYing_ZhaoPianFragment extends Fragment {
                 client.newCall(request).enqueue(new Callback() {
                     @Override
                     public void onFailure(Call call, IOException e) {
-                        Toast.makeText(getContext(),e.toString(),Toast.LENGTH_SHORT).show();
+                        Log.i("错误获取",e.getMessage());
                     }
 
                     @Override
