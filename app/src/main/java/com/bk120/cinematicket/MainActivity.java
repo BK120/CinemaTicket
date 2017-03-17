@@ -117,8 +117,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 SharePreferencesUtils.putInt(this, MainConstant.CURRENT_MAIN_FRAGMENT,0);
                  break;
             case R.id.mainactivity_yingyuan:
-                initNetWork();
                 showDianYingYuanFragment();
+                initNetWork();
                 SharePreferencesUtils.putInt(this, MainConstant.CURRENT_MAIN_FRAGMENT,1);
                 break;
             case R.id.mainactivity_shequ:

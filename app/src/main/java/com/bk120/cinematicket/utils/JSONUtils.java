@@ -2,6 +2,8 @@ package com.bk120.cinematicket.utils;
 
 import com.bk120.cinematicket.bean.Cinema;
 import com.bk120.cinematicket.bean.CinemaSign;
+import com.bk120.cinematicket.bean.City;
+import com.bk120.cinematicket.bean.Movie;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -56,5 +58,57 @@ public class JSONUtils {
         return list;
     }
 
+    //解析获取所有城市信息
+    public static List<City> getAllCityInfo(String sign) {
+        List<City> list=null;
+        try {
+            JSONObject rootObject=new JSONObject(sign);
+            if (!"success".equals(rootObject.getString("reason"))){
+                //获取失败
+                return null;
+            }
+            list=new ArrayList<>();
+            JSONArray result = rootObject.getJSONArray("result");
+            for(int i=0;i<result.length();i++){
+                //获取单个城市
+                JSONObject obj= (JSONObject) result.get(i);
+                String id = obj.getString("id");
+                String city_name = obj.getString("city_name");
+                String count = obj.getString("count");
+                City city=new City(id,city_name,count);
+                list.add(city);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+        return list;
+    }
 
+    //获取解析所有热映电影的信息
+    public static List<Movie> getAllPlayingMovies(String sign) {
+        List<Movie> list=null;
+        try {
+            JSONObject rootObject=new JSONObject(sign);
+            if (!"success".equals(rootObject.getString("reason"))){
+                //获取失败
+                return null;
+            }
+            list=new ArrayList<>();
+            JSONArray result = rootObject.getJSONArray("result");
+            for(int i=0;i<result.length();i++){
+                //获取单个城市
+                JSONObject obj= (JSONObject) result.get(i);
+                String id = obj.getString("movieId");
+                String name = obj.getString("movieName");
+                String pic_url = obj.getString("pic_url");
+                Movie movie=new Movie(id,name,pic_url);
+                list.add(movie);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+        return list;
+    }
 }

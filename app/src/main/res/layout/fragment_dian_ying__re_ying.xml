@@ -1,8 +1,36 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@mipmap/bg2"
     android:layout_height="match_parent"
-    android:background="#05FC50"
     tools:context="com.bk120.cinematicket.fragments.DianYing_ReYingFragment">
 
-</FrameLayout>
+    <android.support.v7.widget.RecyclerView
+        android:layout_height="match_parent"
+        android:id="@+id/reyingfragment_recycleview"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_centerHorizontal="true"
+        />
+
+    <ProgressBar
+        android:layout_height="60dp"
+        android:layout_width="60dp"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:layout_centerInParent="true"
+        android:id="@+id/reyingfragment_pb"
+        />
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="加载中..."
+        android:textSize="14sp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/card_bg_blue"
+        android:layout_below="@id/reyingfragment_pb"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/reyingfragment_loading_tv"
+        />
+
+</RelativeLayout>

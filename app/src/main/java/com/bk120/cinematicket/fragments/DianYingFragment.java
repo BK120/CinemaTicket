@@ -95,7 +95,7 @@ public class DianYingFragment extends Fragment {
             }
             @Override
             public void error(String s) {
-                currentAddress="失败";
+                currentAddress="定位...";
             }
         });
         utils.start();

@@ -80,11 +80,9 @@ public class YingYuanFragment extends Fragment {
     private String fileUrl="http://api.map.baidu.com/place/search?query=电影院&location=";
     private String radius="&radius=10000&region=";
     //网络是否连接
-    private boolean isNetWork=false;
+    public boolean isNetWork=true;
     public YingYuanFragment() {
     }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -92,6 +90,7 @@ public class YingYuanFragment extends Fragment {
         rootView=inflater.inflate(R.layout.fragment_ying_yuan, container, false);
         utils=new BaiBuDingWeiUtils(getContext());
         initView();
+        initWebView();
         setListener();
         return rootView;
     }
@@ -109,6 +108,7 @@ public class YingYuanFragment extends Fragment {
         }else if ("NetOff".equals(sign.getSign())){
             isNetWork=false;
         }
+        Log.i("获取网络状态",sign.getSign());
     }
 
     //设置监听
@@ -180,11 +180,12 @@ public class YingYuanFragment extends Fragment {
     //判断网络可用否
     private void initNetWork() {
         //传入Activity或则Context对象有问题可能有问题
+        Log.i("是否有网络",isNetWork+"");
         if (isNetWork){
             //显示其他控件
             fileUrl=fileUrl+mlontitude+","+mlatitude+radius+mcontent+output+"&src=BK票儿";
             mWebView.setVisibility(View.VISIBLE);
-            initWebView();
+            mWebView.loadUrl(fileUrl);
             pb.setVisibility(View.GONE);
             loading_tv.setVisibility(View.GONE);
         }else {
@@ -222,7 +223,7 @@ public class YingYuanFragment extends Fragment {
         //设置字体大小
         //mWebView.getSettings().setDefaultFontSize(18);
         //加载网页
-        mWebView.loadUrl(fileUrl);
+
         mWebView.setWebChromeClient(new WebChromeClient());
         mWebView.setWebViewClient(new WebViewClient(){
             @Override

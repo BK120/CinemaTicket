@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#98CECE"
+    android:background="@mipmap/bg2"
     tools:context="com.bk120.cinematicket.fragments.DianYing_ZhaoPianFragment">
     <RelativeLayout
         android:layout_height="wrap_content"
@@ -22,7 +22,7 @@
         android:layout_height="40dp"
         android:layout_width="50dp"
         android:text="搜索"
-        android:textColor="#f00"
+        android:textColor="@color/colorPurple"
         android:textSize="16sp"
         android:background="@drawable/addressactivity_searchbtn_selector"
         android:id="@+id/zhaopian_fragment_search_btn"
@@ -53,7 +53,7 @@
             android:id="@+id/zhaopian_fragment_film_info_title"
             android:layout_gravity="center_horizontal"
             android:gravity="center"
-            android:textColor="#f00"
+            android:textColor="@color/colorBlack"
             android:textSize="18sp"
             />
         <View
@@ -65,42 +65,48 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:id="@+id/zhaopian_fragment_film_info_tag"
-            android:textColor="#f00"
+            android:textColor="@color/colorGray"
+            android:paddingLeft="3dp"
             android:textSize="16sp"
             />
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:id="@+id/zhaopian_fragment_film_info_acts"
-            android:textColor="#f00"
+            android:textColor="@color/colorGray"
             android:textSize="16sp"
+            android:paddingLeft="3dp"
             />
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
+            android:paddingLeft="3dp"
             android:id="@+id/zhaopian_fragment_film_info_year"
-            android:textColor="#f00"
+            android:textColor="@color/colorGray"
             android:textSize="16sp"
             />
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
+            android:paddingLeft="3dp"
             android:id="@+id/zhaopian_fragment_film_info_rating"
-            android:textColor="#f00"
+            android:textColor="@color/colorGray"
             android:textSize="16sp"
             />
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:id="@+id/zhaopian_fragment_film_info_area"
-            android:textColor="#f00"
+            android:textColor="@color/colorGray"
+            android:paddingLeft="3dp"
             android:textSize="16sp"
             />
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:id="@+id/zhaopian_fragment_film_info_dir"
-            android:textColor="#f00"
+            android:textColor="@color/colorGray"
+            android:paddingLeft="3dp"
             android:textSize="16sp"
             />
         <View
@@ -112,7 +118,9 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:id="@+id/zhaopian_fragment_film_info_desc"
-            android:textColor="#f00"
+            android:textColor="@color/colorGray"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
             android:textSize="16sp"
             />
         <View
@@ -130,6 +138,7 @@
             android:layout_height="200dp"
             android:scaleType="fitXY"
             android:layout_width="200dp"
+            android:paddingLeft="3dp"
             android:id="@+id/zhaopian_fragment_film_info_cover"
             />
             <View

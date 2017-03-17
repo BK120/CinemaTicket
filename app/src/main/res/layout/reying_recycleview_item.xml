@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_height="60dp"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="5dp"
+        android:background="@drawable/addressactivity_recycleview_item_selelctor"
+        >
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:maxLength="20"
+            android:textColor="@color/colorPurple"
+            android:textSize="16sp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/reying_recycleview_item_name"
+            />
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:textColor="@color/colorGray"
+            android:textSize="14sp"
+            android:layout_marginTop="3dp"
+            android:layout_below="@id/reying_recycleview_item_name"
+            android:id="@+id/reying_recycleview_item_time"
+            />
+        <ImageView
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:padding="2dp"
+            android:scaleType="fitXY"
+            android:id="@+id/reying_recycleview_item_icon"
+            android:layout_width="80dp"
+            />
+
+    </RelativeLayout>
+
+</LinearLayout>

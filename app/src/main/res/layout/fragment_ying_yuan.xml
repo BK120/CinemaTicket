@@ -1,14 +1,18 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context="com.bk120.cinematicket.fragments.YingYuanFragment">
+    <WebView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/yingyuanfragment_webview"
+        />
 
     <RelativeLayout
-        android:layout_height="45dp"
+        android:layout_height="50dp"
         android:layout_width="match_parent"
-        android:background="@drawable/card_update_item_shape"
+        android:background="#f4f4f4"
         >
         <TextView
             android:layout_height="match_parent"
@@ -32,6 +36,24 @@
             />
 
     </RelativeLayout>
+    <ProgressBar
+        android:layout_height="60dp"
+        android:layout_width="60dp"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:layout_centerInParent="true"
+        android:id="@+id/yingyuanfragment_pb"
+        />
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="加载中..."
+        android:textSize="14sp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/card_bg_blue"
+        android:layout_below="@id/yingyuanfragment_pb"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/yingyuanfragment_loding_tv"
+        />
 
 
-</LinearLayout>
+</RelativeLayout>

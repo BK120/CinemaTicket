@@ -8,9 +8,10 @@ package com.bk120.cinematicket.constants;
 public class JuHeConstant {
     //获取影视信息的KEY
     public static String KEY="0196571081b01dbffe9f5073e9a8efdd";
-    //检索影院的URLhttp://v.juhe.cn/movie/cinemas.local?
-    // key=您申请的key&dtype=json&lat=31.30947&lon=120.6003&radius=2000
-    //查询半径  最大3000米之内
-    public static String RADIUS="3000";
-    public static String GET_CINEM_URL="http://v.juhe.cn/movie/cinemas.local?key="+KEY+"&dtype=json";
+    //查询所有城市的信息
+    public static String CITY_INFO_URL="http://v.juhe.cn/movie/citys?key="+KEY;
+    //正在热映的电影
+    public static String CURRENT_PLAYING_FILM_URL="http://v.juhe.cn/movie/movies.today?key="+KEY+"&cityid=";
+
+
 }
