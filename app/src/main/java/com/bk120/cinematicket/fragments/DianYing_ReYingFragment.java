@@ -166,7 +166,7 @@ public class DianYing_ReYingFragment extends Fragment {
             return;
         }
         //设置Adapter
-        recyclerView.setAdapter(new ReYingAdapter(movieLists,getContext()));
+        recyclerView.setAdapter(new ReYingAdapter(movieLists,getContext(),city_id));
     }
 
     //初始化控件

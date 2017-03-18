@@ -1,7 +1,10 @@
 package com.bk120.cinematicket.utils;
 
+import android.util.Log;
+
 import com.bk120.cinematicket.bean.Cinema;
 import com.bk120.cinematicket.bean.CinemaSign;
+import com.bk120.cinematicket.bean.CinemaSupFilm;
 import com.bk120.cinematicket.bean.City;
 import com.bk120.cinematicket.bean.Movie;
 
@@ -97,7 +100,6 @@ public class JSONUtils {
             list=new ArrayList<>();
             JSONArray result = rootObject.getJSONArray("result");
             for(int i=0;i<result.length();i++){
-                //获取单个城市
                 JSONObject obj= (JSONObject) result.get(i);
                 String id = obj.getString("movieId");
                 String name = obj.getString("movieName");
@@ -111,4 +113,33 @@ public class JSONUtils {
         }
         return list;
     }
+    //处理解析当前城市当前电影支持的影院信息
+    public static List<CinemaSupFilm> getCinemaSupFilmLists(String sign) {
+        List<CinemaSupFilm> list=null;
+        try {
+            JSONObject rootObject=new JSONObject(sign);
+            if (!"success".equals(rootObject.getString("reason"))){
+                //获取失败
+                return null;
+            }
+            list=new ArrayList<>();
+            JSONArray result = rootObject.getJSONArray("result");
+            for(int i=0;i<result.length();i++){
+                JSONObject obj= (JSONObject) result.get(i);
+                String cinemaId = obj.getString("cinemaId");
+                String cinemaName = obj.getString("cinemaName");
+                String address = obj.getString("address");
+                String latitude = obj.getString("latitude");
+                String longitude = obj.getString("longitude");
+                CinemaSupFilm csf=new CinemaSupFilm(cinemaId,cinemaName,address,latitude,longitude);
+                list.add(csf);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+        return list;
+    }
+
+
 }

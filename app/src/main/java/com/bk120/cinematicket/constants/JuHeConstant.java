@@ -12,6 +12,9 @@ public class JuHeConstant {
     public static String CITY_INFO_URL="http://v.juhe.cn/movie/citys?key="+KEY;
     //正在热映的电影
     public static String CURRENT_PLAYING_FILM_URL="http://v.juhe.cn/movie/movies.today?key="+KEY+"&cityid=";
+    //当前电影当前城市的所有支持该电影的影院信息
+    //http://v.juhe.cn/movie/movies.cinemas?key=您申请的KEY&cityid=1&movieid=190465
+    public static String CINEMA_SUP_FILM_URL="http://v.juhe.cn/movie/movies.cinemas?key="+KEY;
 
 
 }
