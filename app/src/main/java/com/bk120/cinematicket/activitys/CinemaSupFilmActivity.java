@@ -15,6 +15,7 @@ import com.bk120.cinematicket.adapter.CinemaSupFilmAdapter;
 import com.bk120.cinematicket.bean.CinemaSupFilm;
 import com.bk120.cinematicket.bean.CinemaSupFilmSign;
 import com.bk120.cinematicket.bean.CitySign;
+import com.bk120.cinematicket.bean.StringSign;
 import com.bk120.cinematicket.constants.JuHeConstant;
 import com.bk120.cinematicket.utils.JSONUtils;
 import com.bk120.cinematicket.views.RecycleViewDividerL;
@@ -38,6 +39,7 @@ import okhttp3.Response;
 public class CinemaSupFilmActivity extends Activity {
     //影片ID
     private String mMovie_id;
+    private String movie_name;
     //城市ID
     private String mCity_id;
     private RecyclerView mRecyclerView;
@@ -56,6 +58,14 @@ public class CinemaSupFilmActivity extends Activity {
         super.onDestroy();
         EventBus.getDefault().unregister(this);
     }
+    //处理关闭界面逻辑
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void close(StringSign ss){
+        if ("CloseActivity".equals(ss.getSign())){
+            this.finish();
+        }
+    }
+
     //初始化RecycleView
     private void initRecycleView() {
         //设置排列方式
@@ -69,7 +79,7 @@ public class CinemaSupFilmActivity extends Activity {
             Toast.makeText(this,"影院信息获取失败",Toast.LENGTH_SHORT).show();
             return;
         }
-        mRecyclerView.setAdapter(new CinemaSupFilmAdapter(mLists,this));
+        mRecyclerView.setAdapter(new CinemaSupFilmAdapter(mLists,this,mCity_id,mMovie_id,movie_name));
     }
 
     //初始化数据
@@ -102,6 +112,7 @@ public class CinemaSupFilmActivity extends Activity {
         Intent intent = this.getIntent();
         mMovie_id=intent.getStringExtra("movie_id");
         mCity_id= intent.getStringExtra("city_id");
+        movie_name=intent.getStringExtra("movie_name");
         mRecyclerView= (RecyclerView) this.findViewById(R.id.cinemasupfilmactivity_recycleview);
     }
     //返回关闭当前页面

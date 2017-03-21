@@ -106,15 +106,15 @@ public class LoginRegisterActivity extends FragmentActivity implements View.OnCl
         mViewPager.setCurrentItem(1);
         login_tv.setBackgroundResource(R.color.colorWhite);
         login_tv.setTextColor(getResources().getColor(R.color.colorGray));
-        register_tv.setBackgroundResource(R.color.colorGreen);
-        register_tv.setTextColor(getResources().getColor(R.color.colorRed));
+        register_tv.setBackgroundResource(R.color.card_bg_green);
+        register_tv.setTextColor(getResources().getColor(R.color.colorPurple));
     }
 
     //显示登录Fragment
     private void showLoginFragment() {
         mViewPager.setCurrentItem(0);
-        login_tv.setBackgroundResource(R.color.colorGreen);
-        login_tv.setTextColor(getResources().getColor(R.color.colorRed));
+        login_tv.setBackgroundResource(R.color.card_bg_green);
+        login_tv.setTextColor(getResources().getColor(R.color.colorPurple));
         register_tv.setBackgroundResource(R.color.colorWhite);
         register_tv.setTextColor(getResources().getColor(R.color.colorGray));
     }

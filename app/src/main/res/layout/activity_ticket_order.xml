@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@mipmap/bg2"
+    android:layout_height="match_parent"
+    tools:context="com.bk120.cinematicket.activitys.TicketOrderActivity">
+
+    <RelativeLayout
+        android:layout_height="45dp"
+        android:layout_width="match_parent"
+        android:background="#1F9BEA"
+        >
+        <ImageView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:src="@mipmap/back"
+            android:onClick="back"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            />
+        <TextView
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:text="我的订单"
+            android:textSize="18sp"
+            android:layout_marginLeft="100dp"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            />
+    </RelativeLayout>
+    <android.support.v7.widget.RecyclerView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="60dp"
+        android:padding="5dp"
+        android:layout_marginBottom="20dp"
+        android:id="@+id/ticketorderactivity_recycleview"
+
+        />
+
+</RelativeLayout>

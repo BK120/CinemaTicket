@@ -22,6 +22,7 @@ import com.bk120.cinematicket.db.CardInfoDao;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -159,7 +160,9 @@ public class CardAdapter extends RecyclerView.Adapter{
                     return;
                 }
                 Card card = list.get(position);
-                card.setBalance(b+card.getBalance());
+                BigDecimal op=new BigDecimal(Double.toString(b));
+                BigDecimal re=new BigDecimal(Double.toString(card.getBalance()));
+                card.setBalance(op.add(re).doubleValue());
                 //更新数据
                 cDao.update(card);
                 dialog.dismiss();

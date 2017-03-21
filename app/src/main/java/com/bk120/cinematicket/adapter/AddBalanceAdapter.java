@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,7 +51,7 @@ public class AddBalanceAdapter extends RecyclerView.Adapter{
             }else {
                 ((MyAddBalanceHolder) holder).chicked_iv.setVisibility(View.GONE);
             }
-            holder.itemView.setBackgroundColor(context.getResources().getColor(MainConstant.CARD_BG[card.getBgColor()]));
+            ((MyAddBalanceHolder) holder).rl.setBackgroundColor(context.getResources().getColor(MainConstant.CARD_BG[card.getBgColor()]));
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -68,12 +69,14 @@ public class AddBalanceAdapter extends RecyclerView.Adapter{
     class MyAddBalanceHolder extends RecyclerView.ViewHolder {
         private ImageView type_iv,chicked_iv;
         private TextView cardname_tv,balance_tv;
+        private RelativeLayout rl;
         public MyAddBalanceHolder(View itemView) {
             super(itemView);
             chicked_iv= (ImageView) itemView.findViewById(R.id.addbalanceactivty_chicked_iv);
             type_iv= (ImageView) itemView.findViewById(R.id.addbalancerecycleview_item_iv);
             cardname_tv= (TextView) itemView.findViewById(R.id.addbalancerecycleview_item_cardname_tv);
             balance_tv= (TextView) itemView.findViewById(R.id.addbalancerecycleview_item_money_tv);
+            rl= (RelativeLayout) itemView.findViewById(R.id.addbalancerecycleview_item_rl);
         }
     }
 }

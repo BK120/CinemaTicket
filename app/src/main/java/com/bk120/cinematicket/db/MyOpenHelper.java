@@ -55,6 +55,22 @@ public class MyOpenHelper extends SQLiteOpenHelper{
         String comment_sqlTable="create table comment_info(_id Integer primary key autoincrement,name," +
                 "icon,describe,time)";
         db.execSQL(comment_sqlTable);
+        /**
+         * 电影表
+         * _id  主键自动增长
+         * movie_id  电影id  String   唯一标识一部电影
+         * movie_name  String 电影名称
+         * user_name  String  用户名
+         * price  double  电影价格
+         * cinema_name  String 电影院名称
+         * cinema_address  String  电影院地址
+         * chair_number  int  电影院座位号 0~79
+         * chair_loc  电影院座位位置
+         * time  购票放映时间
+         */
+        String ticket_sqlTable="create table ticket_info(_id Integer primary key autoincrement," +
+                "movie_id,movie_name,user_name,price,cinema_name,cinema_address,chair_number,chair_loc,time)";
+        db.execSQL(ticket_sqlTable);
     }
 
     @Override

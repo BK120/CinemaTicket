@@ -2,6 +2,7 @@ package com.bk120.cinematicket.utils;
 
 import android.util.Log;
 
+import com.bk120.cinematicket.bean.BuyFilm;
 import com.bk120.cinematicket.bean.Cinema;
 import com.bk120.cinematicket.bean.CinemaSign;
 import com.bk120.cinematicket.bean.CinemaSupFilm;
@@ -141,5 +142,38 @@ public class JSONUtils {
         return list;
     }
 
+    //解析即将购买的电影详情
+    public static BuyFilm getBuyFilms(String sign) {
+        BuyFilm buyFilm=null;
+        try {
+            JSONObject rootObj=new JSONObject(sign);
+            //返回失败
+            if (!"成功的返回".equals(rootObj.getString("reason"))){
+                return null;
+            }
+            JSONObject result = rootObj.getJSONObject("result");
+            String movieid = result.getString("movieid");
+            String rating = result.getString("rating");
+            String genres = result.getString("genres");
+            String language = result.getString("language");
+            String title = result.getString("title");
+            String poster = result.getString("poster");
+            String directors = result.getString("directors");
+            String actors = result.getString("actors");
+            String plot_simple = result.getString("plot_simple");
+            String country = result.getString("country");
+            buyFilm=new BuyFilm(movieid,title,genres,language);
+            buyFilm.setActors(actors);
+            buyFilm.setCountry(country);
+            buyFilm.setDirectors(directors);
+            buyFilm.setPlot_simple(plot_simple);
+            buyFilm.setPoster(poster);
+            buyFilm.setRating(rating);
 
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+        return buyFilm;
+    }
 }

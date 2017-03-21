@@ -24,6 +24,8 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.List;
 //充值dialog样式的Activity
 public class AddBalanceActivity extends Activity {
@@ -94,17 +96,23 @@ public class AddBalanceActivity extends Activity {
             Toast.makeText(this,"充值不能为空！",Toast.LENGTH_SHORT).show();
             return;
         }
+        //此处可能出现精度丢失
         double b=Double.valueOf(s);
         Card card = list.get(position);
         if(card.getBalance()<b){
             Toast.makeText(this,"卡内余额不足！",Toast.LENGTH_SHORT).show();
             return;
         }
-        card.setBalance(card.getBalance()-b);
+        BigDecimal big1=new BigDecimal(Double.toString(b));
+        BigDecimal big2=new BigDecimal(Double.toString(card.getBalance()));
+        BigDecimal subtract = big2.subtract(big1);
+        card.setBalance(subtract.doubleValue());
         //更新卡
         cDao.update(card);
         //更新用户
-        user.setBalance(user.getBalance()+b);
+        BigDecimal big3=new BigDecimal(Double.toString(user.getBalance()));
+        BigDecimal add = big3.add(big1);
+        user.setBalance(add.doubleValue());
         uDao.update(user);
         Toast.makeText(this,"充值成功！",Toast.LENGTH_SHORT).show();
         this.finish();

@@ -6,7 +6,7 @@
         android:layout_height="45dp"
         android:layout_width="match_parent"
         android:background="@color/colorBlue"
-        android:textColor="@color/colorRed"
+        android:textColor="@color/colorAccent"
         android:textSize="18sp"
         android:layout_gravity="center"
         android:gravity="center"
@@ -18,7 +18,7 @@
     android:orientation="horizontal"
     android:layout_gravity="center_horizontal"
     android:layout_marginTop="30dp"
-    android:background="@drawable/addressactivity_searchbtn_shape"
+    android:background="@drawable/addressactivity_recycleview_item_selelctor"
     >
     <TextView
         android:layout_height="match_parent"
@@ -38,14 +38,19 @@
         android:layout_gravity="center_vertical"
         android:textColor="@color/colorGray"
         android:id="@+id/userinfodialog_updatemotto_et"
-        android:background="@drawable/addressactivity_searchbtn_shape"
+        android:background="@drawable/addressactivity_recycleview_item_selelctor"
         />
 </LinearLayout>
+    <View
+        android:layout_height="2dp"
+        android:layout_width="match_parent"
+        android:background="@color/colorGray"
+        android:layout_marginTop="25dp"
+        />
     <LinearLayout
         android:layout_height="45dp"
         android:layout_width="match_parent"
         android:orientation="horizontal"
-        android:layout_marginTop="25dp"
         >
         <Button
             android:layout_height="match_parent"
@@ -60,9 +65,9 @@
             />
         <View
             android:layout_height="40dp"
-            android:layout_width="1dp"
+            android:layout_width="40dp"
             android:layout_gravity="center"
-            android:background="@color/colorBlack"
+            android:background="#00000000"
             />
         <Button
             android:layout_height="match_parent"

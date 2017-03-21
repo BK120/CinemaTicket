@@ -215,6 +215,7 @@ public class DianYing_ZhaoPianFragment extends Fragment {
                 Intent i=new Intent(getContext(), PlayFilmActivity.class);
                 //放置对象
                 i.putExtra("filmUrl",mFilmBean.getYouKuFilmUrl());
+                //i.putExtra("filmUrl","http:\\/\\/v.youku.com\\/v_show\\/id_XMTEyMTU5MDI4.html?tpa=dW5pb25faWQ9MTAyMjEzXzEwMDAwNl8wMV8wMQ");
                 startActivity(i);
             }
         });

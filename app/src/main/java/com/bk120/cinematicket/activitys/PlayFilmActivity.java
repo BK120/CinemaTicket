@@ -1,6 +1,8 @@
 package com.bk120.cinematicket.activitys;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -51,14 +53,23 @@ public class PlayFilmActivity extends Activity {
         //设置字体大小
         //mWebView.getSettings().setDefaultFontSize(18);
         //加载网页
-        mWebView.loadUrl(playUrl);
         mWebView.setWebChromeClient(new WebChromeClient());
        mWebView.setWebViewClient(new WebViewClient(){
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-                return true;
-            }
-        });
+           //解决方法：以"http","https"开头的url在本页用webview进行加载，其他链接进行跳转
+           @Override
+           public boolean shouldOverrideUrlLoading(WebView view, String url) {
+               if(url.startsWith("http:") || url.startsWith("https:") ) {
+                   view.loadUrl(url);
+                   return false;
+               }else{
+                   Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                   startActivity(intent);
+                   PlayFilmActivity.this.finish();
+                   return true;
+               }
+           }
+       });
+        mWebView.loadUrl(playUrl);
     }
 
     //关闭当前页

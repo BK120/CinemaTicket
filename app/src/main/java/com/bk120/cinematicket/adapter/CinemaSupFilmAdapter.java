@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bk120.cinematicket.R;
+import com.bk120.cinematicket.activitys.BuyFilmActivity;
 import com.bk120.cinematicket.activitys.MapViewActivity;
 import com.bk120.cinematicket.bean.CinemaSupFilm;
 
@@ -23,15 +24,23 @@ import java.util.List;
 public class CinemaSupFilmAdapter extends RecyclerView.Adapter{
     private List<CinemaSupFilm> list;
     private Context context;
+    //城市id
+    private String city_id;
+    private String movie_name;
+    //电影ID、
+    private String movie_id;
     //路径
     private String one="http://api.map.baidu.com/marker?" ;
     private String location="location=";
     private String title="&title=";
     private String content="&content=";
     private String output="&output=html";
-    public CinemaSupFilmAdapter(List<CinemaSupFilm> l,Context c){
+    public CinemaSupFilmAdapter(List<CinemaSupFilm> l,Context c,String ci,String mi,String mN){
+        this.city_id=ci;
+        this.movie_id=mi;
         this.list=l;
         this.context=c;
+        this.movie_name=mN;
     }
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
@@ -49,7 +58,13 @@ public class CinemaSupFilmAdapter extends RecyclerView.Adapter{
             viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(context,"功能未开放",Toast.LENGTH_SHORT).show();
+                    Intent i=new Intent(context, BuyFilmActivity.class);
+                    i.putExtra("movie_id",movie_id);
+                    i.putExtra("movie_name",movie_name);
+                    i.putExtra("city_id",city_id);
+                    i.putExtra("cinema_name",cinemaSupFilm.getCinemaName());
+                    i.putExtra("cinema_address",cinemaSupFilm.getAddress());
+                    context.startActivity(i);
                 }
             });
             //导航至影院位置

@@ -23,6 +23,7 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public class GetBalanceActivity extends Activity {
@@ -102,11 +103,14 @@ public class GetBalanceActivity extends Activity {
             Toast.makeText(this,"一次最多只能提取"+MainConstant.BALANCEMAX+"元！",Toast.LENGTH_SHORT).show();
             return;
         }
-        card.setBalance(card.getBalance()+b);
+        BigDecimal opter=new BigDecimal(Double.toString(b));
+        BigDecimal res=new BigDecimal(Double.toString(user.getBalance()));
+        BigDecimal yuan=new BigDecimal(Double.toString(card.getBalance()));
+        card.setBalance(yuan.add(opter).doubleValue());
         //更新卡
         cDao.update(card);
         //更新用户
-        user.setBalance(user.getBalance()-b);
+        user.setBalance(res.subtract(opter).doubleValue());
         uDao.update(user);
         Toast.makeText(this,"提现成功！",Toast.LENGTH_SHORT).show();
         this.finish();

@@ -34,6 +34,8 @@ public class MainConstant {
     R.mipmap.gallery4};
     //未设置，默认的手势密码
     public static int[] GESTURE_NUMBER={1,4,7,8,9};
+    //默认的支付密码
+    public static int[] GRSTURE_PAY={1,2,3,6,9};
     //手势密码存储在SharePrefernce中
     public static String GESTURE_LOCK="gesture_lock";
     //是否开启手势密码
@@ -63,4 +65,7 @@ public class MainConstant {
             "张一白老师创造了中国广告界的一座里程碑。他让众多明星联袂拍摄了一个多种品牌混搭跨界的广告长片，还让这个广告登上了大银幕，并且还需要人们买票观看，颠覆了广告一向是免费的low逼形象，为广告这个边缘创意产业赢得了尊严。"
     };
     public static String[] COMMENT_TIME={"2014年02年23日","2011月05年20日","2012年02月15日","2016年10月18日","2016年05月05日","2016年11月23日","2017年02月12日","2017年01月22日","2013年06月08日"};
+    //单张票的价格
+    public static double TICKET_PRICE_MIN=15;
+    public static double TICKET_PRICE_MAX=40;
 }

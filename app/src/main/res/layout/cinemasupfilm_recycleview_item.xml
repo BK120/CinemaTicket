@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_height="60dp"
+        android:layout_marginLeft="8dp"
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:background="@drawable/addressactivity_recycleview_item_selelctor"
+        >
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/colorPurple"
+            android:text="上海南桥海上国际影城"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="2dp"
+            android:id="@+id/cinemasupfilmactivity_recycleview_item_name_tv"
+            />
+        <ImageView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/nowlocation"
+            android:id="@+id/cinemasupfilmactivity_recycleview_item_address_iv"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            />
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/colorGray"
+            android:text="嘉定城中路138号罗宾森广场4楼"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="3dp"
+            android:layout_below="@id/cinemasupfilmactivity_recycleview_item_name_tv"
+            android:id="@+id/cinemasupfilmactivity_recycleview_item_address_tv"
+            />
+    </RelativeLayout>
+
+</LinearLayout>

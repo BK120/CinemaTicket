@@ -77,8 +77,8 @@ public class WalletActivity extends FragmentActivity {
     private void initRecycleView() {
         LinearLayoutManager manager=new LinearLayoutManager(this);
         recyclerView.setLayoutManager(manager);
-        RecycleViewDividerL dividerL=new RecycleViewDividerL(this,LinearLayout.VERTICAL,10, Color.parseColor("#00000000"));
-        recyclerView.addItemDecoration(dividerL);
+        //RecycleViewDividerL dividerL=new RecycleViewDividerL(this,LinearLayout.VERTICAL,10, Color.parseColor("#00000000"));
+        //recyclerView.addItemDecoration(dividerL);
         lists=cDao.selectAll(user.getUsername());
         adpter=new CardAdapter(lists,this);
         recyclerView.setAdapter(adpter);

@@ -1,56 +1,54 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@mipmap/bg2"
-    tools:context="com.bk120.cinematicket.fragments.DianYing_ZhaoPianFragment">
+    tools:context="com.bk120.cinematicket.activitys.BuyFilmActivity">
+
     <RelativeLayout
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        >
-    <EditText
+        android:layout_height="45dp"
         android:layout_width="match_parent"
-        android:id="@+id/zhaopian_fragment_search_et"
-        android:layout_height="wrap_content"
-        android:singleLine="true"
-        android:background="@drawable/addressactivity_et_shape"
-        android:drawableLeft="@android:drawable/ic_menu_search"
-        android:padding="8dp" />
-    <Button
-        android:layout_height="40dp"
-        android:layout_width="50dp"
-        android:text="搜索"
-        android:textColor="@color/colorPurple"
-        android:textSize="16sp"
-        android:background="@drawable/addressactivity_searchbtn_selector"
-        android:id="@+id/zhaopian_fragment_search_btn"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="5dp"
-        android:layout_centerVertical="true"
-        android:layout_alignRight="@id/zhaopian_fragment_search_et"
-        />
+        android:background="#1F9BEA"
+        >
+        <ImageView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:src="@mipmap/back"
+            android:onClick="back"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            />
+        <TextView
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:text="电影详情"
+            android:textSize="18sp"
+            android:layout_marginLeft="100dp"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            />
     </RelativeLayout>
+
     <ScrollView
+        android:layout_marginTop="15dp"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent"
         android:padding="8dp"
-        android:id="@+id/zhaopian_fragment_film_info_sv"
+        android:layout_width="match_parent"
+        android:id="@+id/buyfilmactivity_sv"
         android:visibility="invisible"
-        >
-    <LinearLayout
+        ><LinearLayout
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:orientation="vertical"
-        android:id="@+id/zhaopian_fragment_film_info"
         android:background="@drawable/zhaopain_item_shape"
-        android:layout_marginTop="15dp"
         >
         <TextView
             android:layout_height="40dp"
             android:layout_width="match_parent"
-            android:id="@+id/zhaopian_fragment_film_info_title"
+            android:id="@+id/buyfilmactivity_title_tv"
             android:layout_gravity="center_horizontal"
             android:gravity="center"
             android:textColor="@color/colorBlack"
@@ -64,7 +62,7 @@
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:id="@+id/zhaopian_fragment_film_info_tag"
+            android:id="@+id/buyfilmactivity_genres_tv"
             android:textColor="@color/colorGray"
             android:paddingLeft="3dp"
             android:textSize="16sp"
@@ -72,31 +70,7 @@
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:id="@+id/zhaopian_fragment_film_info_acts"
-            android:textColor="@color/colorGray"
-            android:textSize="16sp"
-            android:paddingLeft="3dp"
-            />
-        <TextView
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:paddingLeft="3dp"
-            android:id="@+id/zhaopian_fragment_film_info_year"
-            android:textColor="@color/colorGray"
-            android:textSize="16sp"
-            />
-        <TextView
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:paddingLeft="3dp"
-            android:id="@+id/zhaopian_fragment_film_info_rating"
-            android:textColor="@color/colorGray"
-            android:textSize="16sp"
-            />
-        <TextView
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:id="@+id/zhaopian_fragment_film_info_area"
+            android:id="@+id/buyfilmactivity_language_tv"
             android:textColor="@color/colorGray"
             android:paddingLeft="3dp"
             android:textSize="16sp"
@@ -104,7 +78,15 @@
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:id="@+id/zhaopian_fragment_film_info_dir"
+            android:id="@+id/buyfilmactivity_rating_tv"
+            android:textColor="@color/colorGray"
+            android:paddingLeft="3dp"
+            android:textSize="16sp"
+            />
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:id="@+id/buyfilmactivity_country_tv"
             android:textColor="@color/colorGray"
             android:paddingLeft="3dp"
             android:textSize="16sp"
@@ -117,10 +99,17 @@
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:id="@+id/zhaopian_fragment_film_info_desc"
+            android:id="@+id/buyfilmactivity_directors_tv"
             android:textColor="@color/colorGray"
             android:paddingLeft="3dp"
-            android:paddingRight="3dp"
+            android:textSize="16sp"
+            />
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:id="@+id/buyfilmactivity_actors_tv"
+            android:textColor="@color/colorGray"
+            android:paddingLeft="3dp"
             android:textSize="16sp"
             />
         <View
@@ -128,47 +117,61 @@
             android:layout_width="match_parent"
             android:background="#ADB4BC"
             />
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:id="@+id/buyfilmactivity_plot_simple_tv"
+            android:textColor="@color/colorGray"
+            android:paddingLeft="3dp"
+            android:textSize="16sp"
+            />
+        <View
+            android:layout_height="2dp"
+            android:layout_width="match_parent"
+            android:background="#ADB4BC"
+            />
+
         <LinearLayout
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:orientation="horizontal"
             android:layout_marginTop="5dp"
             >
-        <ImageView
-            android:layout_height="200dp"
-            android:scaleType="fitXY"
-            android:layout_width="250dp"
-            android:paddingLeft="3dp"
-            android:id="@+id/zhaopian_fragment_film_info_cover"
-            />
+            <ImageView
+                android:layout_height="200dp"
+                android:scaleType="fitXY"
+                android:layout_width="250dp"
+                android:paddingLeft="3dp"
+                android:id="@+id/buyfilmactivity_poster_iv"
+                />
             <View
                 android:layout_height="200dp"
                 android:layout_width="2dp"
                 android:background="#ADB4BC"
                 android:layout_marginLeft="5dp"
                 />
-        <Button
-            android:layout_height="40dp"
-            android:layout_width="60dp"
-            android:text="播放"
-            android:textColor="#FFFFFF"
-            android:id="@+id/zhaopian_fragment_film_info_play_btn"
-            android:textSize="18sp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="80dp"
-            android:background="@drawable/addressactivity_searchbtn_selector"
-            />
+            <Button
+                android:layout_height="40dp"
+                android:layout_width="60dp"
+                android:text="购买"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:onClick="buy"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="80dp"
+                android:background="@drawable/addressactivity_searchbtn_selector"
+                />
 
 
         </LinearLayout>
-        <View
-            android:layout_height="2dp"
-            android:layout_width="match_parent"
-            android:background="#ADB4BC"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="100dp"
-            />
+
+
+
+
+
+
     </LinearLayout></ScrollView>
+
 
 
 </LinearLayout>

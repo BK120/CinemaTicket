@@ -2,14 +2,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/bg_login"
+    android:background="@mipmap/bg2"
     tools:context="com.bk120.cinematicket.fragments.UserLoginFragment">
     <LinearLayout
         android:layout_height="50dp"
         android:layout_width="300dp"
         android:orientation="horizontal"
         android:id="@+id/loginfragment_password_ll"
-        android:background="@drawable/addressactivity_searchbtn_shape"
+        android:background="@drawable/addressactivity_recycleview_item_selelctor"
         android:layout_centerInParent="true"
         >
         <TextView
@@ -29,7 +29,8 @@
         android:singleLine="true"
         android:inputType="textPassword"
         android:maxLength="10"
-        android:background="@drawable/addressactivity_searchbtn_shape"
+        android:paddingLeft="5dp"
+        android:background="@drawable/addressactivity_recycleview_item_selelctor"
         android:id="@+id/loginfragment_password_et"
         />
     </LinearLayout>
@@ -38,11 +39,11 @@
         android:layout_width="300dp"
         android:orientation="horizontal"
         android:id="@+id/loginfragment_name_ll"
-        android:layout_centerHorizontal="true"
-        android:layout_alignBottom="@id/loginfragment_password_ll"
-        android:layout_marginBottom="80dp"
-        android:background="@drawable/addressactivity_searchbtn_shape"
-        >
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/addressactivity_recycleview_item_selelctor"
+        android:layout_above="@+id/loginfragment_password_ll"
+        android:layout_alignLeft="@+id/loginfragment_password_ll"
+        android:layout_alignStart="@+id/loginfragment_password_ll">
         <TextView
             android:layout_height="match_parent"
             android:layout_width="wrap_content"
@@ -59,7 +60,8 @@
             android:textSize="18sp"
             android:singleLine="true"
             android:maxLength="10"
-            android:background="@drawable/addressactivity_searchbtn_shape"
+            android:paddingLeft="5dp"
+            android:background="@drawable/addressactivity_recycleview_item_selelctor"
             android:id="@+id/loginfragment_username_et"
             />
     </LinearLayout>
@@ -93,7 +95,7 @@
         android:layout_height="45dp"
         android:layout_width="200dp"
         android:text="LOGIN"
-        android:textColor="#ff0000"
+        android:textColor="@color/colorAccent"
         android:textSize="20sp"
         android:id="@+id/loginfragment_login_btn"
         android:layout_centerHorizontal="true"

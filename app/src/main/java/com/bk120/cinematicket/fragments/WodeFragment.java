@@ -18,6 +18,7 @@ import com.bk120.cinematicket.activitys.BalanceActivity;
 import com.bk120.cinematicket.activitys.GestureLockActivity;
 import com.bk120.cinematicket.activitys.LoginRegisterActivity;
 import com.bk120.cinematicket.activitys.SettingActivity;
+import com.bk120.cinematicket.activitys.TicketOrderActivity;
 import com.bk120.cinematicket.activitys.UpdateUserActivity;
 import com.bk120.cinematicket.activitys.WalletActivity;
 import com.bk120.cinematicket.bean.StringSign;
@@ -172,6 +173,15 @@ public class WodeFragment extends Fragment implements View.OnClickListener{
                         Intent i = new Intent(getContext(), BalanceActivity.class);
                         startActivity(i);
                     }
+                }
+                break;
+            case R.id.wodefragment_all_dingdan_rl:
+                //进入订单界面
+                if (user==null){
+                    showLoginAndRegister();
+                }else {
+                    Intent i=new Intent(getContext(), TicketOrderActivity.class);
+                    startActivity(i);
                 }
                 break;
             case R.id.wodefragment_daifukuan:

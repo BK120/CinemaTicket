@@ -51,6 +51,7 @@ public class ReYingAdapter extends RecyclerView.Adapter{
                     Intent i=new Intent(context, CinemaSupFilmActivity.class);
                     //将电影ID和城市ID传送至显示界面
                     i.putExtra("movie_id",movie.getMovie_id());
+                    i.putExtra("movie_name",movie.getMovie_name());
                     i.putExtra("city_id",city_id);
                     context.startActivity(i);
                 }

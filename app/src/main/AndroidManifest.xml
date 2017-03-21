@@ -66,7 +66,10 @@
         <activity android:name=".activitys.GestureLockActivity" />
         <activity android:name=".activitys.AddCommentActivity" />
         <activity android:name=".activitys.MapViewActivity" />
-        <activity android:name=".activitys.CinemaSupFilmActivity"></activity>
+        <activity android:name=".activitys.CinemaSupFilmActivity" />
+        <activity android:name=".activitys.BuyFilmActivity" />
+        <activity android:name=".activitys.CinemaChairActivity"></activity>
+        <activity android:name=".activitys.TicketOrderActivity"></activity>
     </application>
 
 </manifest>

@@ -41,16 +41,16 @@
             android:layout_width="match_parent"
             android:text="登录"
             android:textSize="20sp"
-            android:background="#03FA2C"
+            android:background="@color/card_bg_green"
             android:gravity="center"
             android:layout_weight="1"
-            android:textColor="@color/colorRed"
+            android:textColor="@color/colorPurple"
             android:id="@+id/loginregisteractivity_login_tv"
             />
         <View
             android:layout_height="match_parent"
             android:layout_width="2dp"
-            android:background="@color/colorBlack"
+            android:background="@color/colorGray"
             android:layout_gravity="center_vertical"
             />
         <TextView
@@ -69,7 +69,7 @@
     <View
         android:layout_height="2dp"
         android:layout_width="match_parent"
-        android:background="@color/colorBlack"
+        android:background="@color/colorGray"
         />
     <android.support.v4.view.ViewPager
         android:layout_height="match_parent"
