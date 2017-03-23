@@ -6,10 +6,8 @@
 模块功能持续更新中...      
 <h4>下面为一些项目截图 :</h4>      
 
-![](https://github.com/BK120/CinemaTicket/blob/master/shotscreen/shot1.png)&emsp;![](https://github.com/BK120/CinemaTicket/blob/master/shotscreen/shot2.png)  
+![](https://github.com/BK120/CinemaTicket/blob/master/shotscreen/shot1.png)&emsp;![](https://github.com/BK120/CinemaTicket/blob/master/shotscreen/shot2.png)&emsp;![](https://github.com/BK120/CinemaTicket/blob/master/shotscreen/shot3.png)  
 
-![](https://github.com/BK120/CinemaTicket/blob/master/shotscreen/shot3.png)&emsp;![](https://github.com/BK120/CinemaTicket/blob/master/shotscreen/shot4.png)   
-
-![](https://github.com/BK120/CinemaTicket/blob/master/shotscreen/shot5.png)&emsp;![](https://github.com/BK120/CinemaTicket/blob/master/shotscreen/shot6.png)   
+![](https://github.com/BK120/CinemaTicket/blob/master/shotscreen/shot4.png)&emsp;![](https://github.com/BK120/CinemaTicket/blob/master/shotscreen/shot5.png)&emsp;![](https://github.com/BK120/CinemaTicket/blob/master/shotscreen/shot6.png)   
 
 ![](https://github.com/BK120/CinemaTicket/blob/master/shotscreen/shot7.png)&emsp;![](https://github.com/BK120/CinemaTicket/blob/master/shotscreen/shot8.png) 
