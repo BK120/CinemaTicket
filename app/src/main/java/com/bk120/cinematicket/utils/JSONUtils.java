@@ -3,11 +3,13 @@ package com.bk120.cinematicket.utils;
 import android.util.Log;
 
 import com.bk120.cinematicket.bean.BuyFilm;
+import com.bk120.cinematicket.bean.Chat;
 import com.bk120.cinematicket.bean.Cinema;
 import com.bk120.cinematicket.bean.CinemaSign;
 import com.bk120.cinematicket.bean.CinemaSupFilm;
 import com.bk120.cinematicket.bean.City;
 import com.bk120.cinematicket.bean.Movie;
+import com.bk120.cinematicket.constants.MainConstant;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -175,5 +177,22 @@ public class JSONUtils {
             return null;
         }
         return buyFilm;
+    }
+    //解析一个聊天信息
+    public static Chat getChat(String sign) {
+        Chat chat=null;
+        try {
+            JSONObject rootObj=new JSONObject(sign);
+            //返回失败
+            if (!"100000".equals(rootObj.getString("code"))){
+                return null;
+            }
+            String text = rootObj.getString("text");
+            chat=new Chat(0, MainConstant.ROBOT_NAME,text,DateUtils.getCurrentTime());
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+        return chat;
     }
 }

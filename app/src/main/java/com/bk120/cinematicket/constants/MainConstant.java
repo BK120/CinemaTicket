@@ -68,4 +68,12 @@ public class MainConstant {
     //单张票的价格
     public static double TICKET_PRICE_MIN=15;
     public static double TICKET_PRICE_MAX=40;
+    //定义影院座位推荐的位置
+    public static  int[] CHAIR_TUIJIAN={18,19,20,21,26,27,28,29,34,35,36,37};
+    //聊天室的数据
+    //http://op.juhe.cn/robot/index?info=你好&key=您申请到的APPKEY
+    public static String CHAT_URL="http://op.juhe.cn/robot/index?info=";
+    public static String CHAT_KEY="&key=719f54b0c24c5be4695531d2411e8be5";
+    //聊天室机器人的名字
+    public static String ROBOT_NAME="图灵";
 }

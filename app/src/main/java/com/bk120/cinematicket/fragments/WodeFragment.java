@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.bk120.cinematicket.R;
 import com.bk120.cinematicket.activitys.BalanceActivity;
+import com.bk120.cinematicket.activitys.ChatRoomActivity;
 import com.bk120.cinematicket.activitys.GestureLockActivity;
 import com.bk120.cinematicket.activitys.LoginRegisterActivity;
 import com.bk120.cinematicket.activitys.SettingActivity;
@@ -42,7 +43,7 @@ public class WodeFragment extends Fragment implements View.OnClickListener{
     private TextView user_status_tv,yue_tv,xiangkan_tv,kanguo_tv,yingping_tv,redian_tv, weixiaofei_tv,
     daifukaun_tv,daipingjia_tv,daituikuan_tv;
     private RelativeLayout user_info_rl,wodedingdan_rl,wodeqianbao_rl,yue_rl,youhuijuan_rl,shangcheng_rl,
-    wodexiaoxi_rl,wodeshouchang_rl,huiyuanzhongxin_rl,wodeshenghuo_rl,shezhi_rl;
+    wodexiaoxi_rl,wodeshouchang_rl,huiyuanzhongxin_rl,wodeshenghuo_rl,shezhi_rl,chatroom_rl;
     private User user;
     private UserInfoDao dao;
     public WodeFragment() {
@@ -107,6 +108,7 @@ public class WodeFragment extends Fragment implements View.OnClickListener{
         wodeshouchang_rl.setOnClickListener(this);
         wodeshenghuo_rl.setOnClickListener(this);
         shezhi_rl.setOnClickListener(this);
+        chatroom_rl.setOnClickListener(this);
     }
 
     //初始化控件
@@ -134,7 +136,7 @@ public class WodeFragment extends Fragment implements View.OnClickListener{
         huiyuanzhongxin_rl= (RelativeLayout) rootView.findViewById(R.id.wodefragment_huiyuanzhongxing_rl);
         wodeshenghuo_rl= (RelativeLayout) rootView.findViewById(R.id.wodefragment_wodeshenghuo_rl);
         shezhi_rl= (RelativeLayout) rootView.findViewById(R.id.wodefragment_shezhi_rl);
-
+        chatroom_rl= (RelativeLayout) rootView.findViewById(R.id.wodefragment_chatroom_rl);
     }
     //监听点击事件
     @Override
@@ -147,6 +149,7 @@ public class WodeFragment extends Fragment implements View.OnClickListener{
                     //修改用户信息部分
                     Intent i=new Intent(getContext(), UpdateUserActivity.class);
                     startActivity(i);
+                    getActivity().overridePendingTransition(R.anim.acrivity4_push_in,0);
                 }
                 break;
             case R.id.wodefragment_wodeqianbao_rl:
@@ -157,6 +160,7 @@ public class WodeFragment extends Fragment implements View.OnClickListener{
                     //进入查看钱包页面
                     Intent i=new Intent(getContext(), WalletActivity.class);
                     startActivity(i);
+                    getActivity().overridePendingTransition(R.anim.acrivity2_push_in,0);
                 }
                 break;
             case R.id.wodefragment_yue_rl:
@@ -173,6 +177,7 @@ public class WodeFragment extends Fragment implements View.OnClickListener{
                         Intent i = new Intent(getContext(), BalanceActivity.class);
                         startActivity(i);
                     }
+                    getActivity().overridePendingTransition(R.anim.acrivity3_push_in,0);
                 }
                 break;
             case R.id.wodefragment_all_dingdan_rl:
@@ -181,6 +186,16 @@ public class WodeFragment extends Fragment implements View.OnClickListener{
                     showLoginAndRegister();
                 }else {
                     Intent i=new Intent(getContext(), TicketOrderActivity.class);
+                    startActivity(i);
+                }
+                break;
+            case R.id.wodefragment_chatroom_rl:
+                //进入钱包部分
+                if (user==null){
+                    showLoginAndRegister();
+                }else {
+                    //进入查看钱包页面
+                    Intent i=new Intent(getContext(), ChatRoomActivity.class);
                     startActivity(i);
                 }
                 break;
@@ -248,6 +263,7 @@ public class WodeFragment extends Fragment implements View.OnClickListener{
                     //进入查看钱包页面
                     Intent i=new Intent(getContext(), SettingActivity.class);
                     startActivity(i);
+                    getActivity().overridePendingTransition(R.anim.acrivity1_push_in,0);
                 }
                 break;
             default:
@@ -258,5 +274,6 @@ public class WodeFragment extends Fragment implements View.OnClickListener{
         //登录注册部分
         Intent i=new Intent(getContext(), LoginRegisterActivity.class);
         startActivity(i);
+        getActivity().overridePendingTransition(R.anim.acrivity1_push_in,0);
     }
 }

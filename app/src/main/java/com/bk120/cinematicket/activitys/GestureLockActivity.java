@@ -31,6 +31,7 @@ public class GestureLockActivity extends Activity {
                     show_tv.setText("密码正确");
                     Intent i=new Intent(GestureLockActivity.this,BalanceActivity.class);
                     startActivity(i);
+                    overridePendingTransition(R.anim.acrivity3_push_in,0);
                     GestureLockActivity.this.finish();
                 }else {
                     show_tv.setText("密码错误");

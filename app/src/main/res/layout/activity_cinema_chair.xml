@@ -999,6 +999,23 @@
                     />
             </LinearLayout>
 
+            <RelativeLayout
+                android:layout_height="30dp"
+                android:layout_width="match_parent"
+                android:layout_marginTop="15dp"
+                >
+                <TextView
+                    android:layout_height="30dp"
+                    android:layout_width="wrap_content"
+                    android:text="推荐座位"
+                    android:gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:textColor="@color/colorWhite"
+                    android:background="@drawable/addressactivity_searchbtn_selector"
+                    android:id="@+id/cinemachairactivity_tuijian_tv"
+                    />
+            </RelativeLayout>
+
 
         </LinearLayout>
 

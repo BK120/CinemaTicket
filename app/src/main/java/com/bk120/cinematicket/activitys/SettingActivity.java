@@ -34,7 +34,6 @@ public class SettingActivity extends Activity {
         setListener();
         initView();
     }
-
     private void initView() {
         boolean aBoolean = SharePreferencesUtils.getBoolean(this, MainConstant.IS_HIDE_MONEY, false);
         boolean bBoolean = SharePreferencesUtils.getBoolean(this, MainConstant.IS_OPEN_GESTURE, false);

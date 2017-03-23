@@ -44,6 +44,7 @@
         <activity
             android:name=".MainActivity"
             android:launchMode="singleInstance">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -68,8 +69,10 @@
         <activity android:name=".activitys.MapViewActivity" />
         <activity android:name=".activitys.CinemaSupFilmActivity" />
         <activity android:name=".activitys.BuyFilmActivity" />
-        <activity android:name=".activitys.CinemaChairActivity"></activity>
-        <activity android:name=".activitys.TicketOrderActivity"></activity>
+        <activity android:name=".activitys.CinemaChairActivity" />
+        <activity android:name=".activitys.TicketOrderActivity" />
+        <activity android:name=".activitys.ChatRoomActivity">
+        </activity>
     </application>
 
 </manifest>

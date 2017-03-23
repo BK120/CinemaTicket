@@ -140,7 +140,8 @@ public class CinemaChairActivity extends Activity {
         user=uDao.selectOnLine();
         tDao=new TicketInfoDao(this);
         if (user==null){}else {
-            tLists = tDao.selectAll(user.getUsername());
+            //这个查询应该是所有用户的电影票信息，而不是一个人的
+            tLists = tDao.selectAllUsers();
         }
         initTbs();
         //初始化座位颜色设置
@@ -150,7 +151,6 @@ public class CinemaChairActivity extends Activity {
         cinema_name_tv.setText(cinema_name);
         chair_price_tv.setText(price+"元/张");
     }
-
     private void initTbs() {
         tbs=new ToggleButton[]{tb1,tb2,tb3,tb4,tb5,tb6,tb7,tb8,tb9,tb10,tb11,tb12,tb13,tb14,tb15,tb16,
                 tb17,tb18,tb19,tb20,tb21,tb22,tb23,tb24,tb25,tb26,tb27,tb28,tb29,tb30,tb31,tb32,tb33,tb34,tb35,tb36,tb37,tb38,tb39,
@@ -173,6 +173,29 @@ public class CinemaChairActivity extends Activity {
                //同一个电影同一个影院同一个位置
                 tbs[position].setBackgroundColor(getResources().getColor(R.color.colorRed));
                 tbs[position].setEnabled(false);
+            }
+        }
+    }
+    //推荐座位
+    @OnClick(R.id.cinemachairactivity_tuijian_tv)
+    public void tuiJianInit(){
+        for(int i=0;i<MainConstant.CHAIR_TUIJIAN.length;i++){
+            if(tLists==null){
+                tbs[MainConstant.CHAIR_TUIJIAN[i]].setBackgroundResource(R.drawable.chair_tuijian_shape1);
+            }else {
+                for(Ticket t:tLists){
+                    int position=t.getChair_number();
+                    String id = t.getMoive_id();
+                    String name = t.getCinema_name();
+                    String address = t.getCinema_address();
+                    //对于已经座位备选了的进行颜色初始化,并设置不可触摸
+                    if (id.equals(movie_id)&&name.equals(cinema_name)&&address.equals(cinema_address)&&MainConstant.CHAIR_TUIJIAN[i]==t.getChair_number()){
+                        //同一个电影同一个影院同一个位置
+                        tbs[MainConstant.CHAIR_TUIJIAN[i]].setBackgroundResource(R.drawable.chair_tuijian_shape2);
+                    }else {
+                        tbs[MainConstant.CHAIR_TUIJIAN[i]].setBackgroundResource(R.drawable.chair_tuijian_shape1);
+                    }
+                }
             }
         }
     }
@@ -278,15 +301,21 @@ public class CinemaChairActivity extends Activity {
     public void addTicket(){
         chair_number++;
         ticket_number_tv.setText(chair_number+"");
-        all_price=chair_number*price;
+        getAllPrice();
         all_price_tv.setText(all_price+"元");
     }
     //减少票儿
     public void reduceTicket(){
         chair_number--;
         ticket_number_tv.setText(chair_number+"");
-        all_price=chair_number*price;
+       getAllPrice();
         all_price_tv.setText(all_price+"元");
+    }
+    //运算精度处理
+    public void getAllPrice(){
+        BigDecimal bigDecimal=new BigDecimal(Integer.toString(chair_number));
+        BigDecimal unitPrice=new BigDecimal(Double.toString(price));
+        all_price=bigDecimal.multiply(unitPrice).doubleValue();
     }
     //从集合中移除一个座位号
     public void removeTicket(int number){

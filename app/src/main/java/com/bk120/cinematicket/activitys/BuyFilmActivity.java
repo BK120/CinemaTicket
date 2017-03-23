@@ -152,5 +152,6 @@ public class BuyFilmActivity extends Activity {
        intent.putExtra("cinema_name",cinema_name);
        intent.putExtra("cinema_address",cinema_address);
         startActivity(intent);
+        overridePendingTransition(R.anim.acrivity3_push_in,0);
     }
 }

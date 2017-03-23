@@ -129,6 +129,7 @@ public class DianYingFragment extends Fragment {
             public void onClick(View v) {
                 Intent i=new Intent(getContext(), AddressActivity.class);
                 startActivity(i);
+                getActivity().overridePendingTransition(R.anim.acrivity1_push_in,0);
             }
         });
 
