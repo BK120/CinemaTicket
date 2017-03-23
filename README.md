@@ -3,4 +3,4 @@
 其中包括一些部分功能的小Demo测试，比如官方侧滑菜单、地址分类导航、自定义手势密码、百度定位、图灵机器人聊天问答等。  
 模块功能持续更新中...      
 <h4>下面为一些项目截图 :</h4>    
-![image](https://github.com/BK120/CinemaTicket/shotscreen/Screenshot1.png)
+![image](https://github.com/BK120/CinemaTicket/raw/master/shotscreen/Screenshot1.png)
