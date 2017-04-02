@@ -1,7 +1,10 @@
 package com.bk120.cinematicket.fragments;
 
 
+import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -27,6 +30,7 @@ import com.bk120.cinematicket.bean.User;
 import com.bk120.cinematicket.constants.MainConstant;
 import com.bk120.cinematicket.db.UserInfoDao;
 import com.bk120.cinematicket.utils.SharePreferencesUtils;
+import com.bk120.cinematicket.zxing.encoding.EncodingHandler;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -38,7 +42,7 @@ import org.greenrobot.eventbus.ThreadMode;
 public class WodeFragment extends Fragment implements View.OnClickListener{
     private View rootView;
     //用户头像
-    private ImageView user_icon_iv;
+    private ImageView user_icon_iv,erweima_iv;
     //用户登录状态
     private TextView user_status_tv,yue_tv,xiangkan_tv,kanguo_tv,yingping_tv,redian_tv, weixiaofei_tv,
     daifukaun_tv,daipingjia_tv,daituikuan_tv;
@@ -73,6 +77,7 @@ public class WodeFragment extends Fragment implements View.OnClickListener{
         if (user==null){
             user_status_tv.setText("立即登录");
             user_icon_iv.setImageResource(R.mipmap.touxiang_outline);
+            erweima_iv.setImageResource(R.mipmap.arrow_right);
             yue_tv.setText("0.00元");
         }else {
             user_status_tv.setText(user.getUsername());
@@ -83,7 +88,7 @@ public class WodeFragment extends Fragment implements View.OnClickListener{
             }else {
                 yue_tv.setText(user.getBalance()+"元");
             }
-
+            erweima_iv.setImageResource(R.mipmap.erweima);
             user_icon_iv.setImageResource(R.mipmap.touxiang_online);
         }
     }
@@ -109,6 +114,7 @@ public class WodeFragment extends Fragment implements View.OnClickListener{
         wodeshenghuo_rl.setOnClickListener(this);
         shezhi_rl.setOnClickListener(this);
         chatroom_rl.setOnClickListener(this);
+        erweima_iv.setOnClickListener(this);
     }
 
     //初始化控件
@@ -137,6 +143,7 @@ public class WodeFragment extends Fragment implements View.OnClickListener{
         wodeshenghuo_rl= (RelativeLayout) rootView.findViewById(R.id.wodefragment_wodeshenghuo_rl);
         shezhi_rl= (RelativeLayout) rootView.findViewById(R.id.wodefragment_shezhi_rl);
         chatroom_rl= (RelativeLayout) rootView.findViewById(R.id.wodefragment_chatroom_rl);
+        erweima_iv= (ImageView) rootView.findViewById(R.id.wodefragment_erweima);
     }
     //监听点击事件
     @Override
@@ -187,6 +194,14 @@ public class WodeFragment extends Fragment implements View.OnClickListener{
                 }else {
                     Intent i=new Intent(getContext(), TicketOrderActivity.class);
                     startActivity(i);
+                }
+                break;
+            case R.id.wodefragment_erweima:
+                //进入订单界面
+                if (user==null){
+                    showLoginAndRegister();
+                }else {
+                   shwoErWeiMaDialogInfo();
                 }
                 break;
             case R.id.wodefragment_chatroom_rl:
@@ -270,6 +285,28 @@ public class WodeFragment extends Fragment implements View.OnClickListener{
                 Toast.makeText(getContext(),"功能未开启!敬请期待!",Toast.LENGTH_SHORT).show();
         }
     }
+    //显示一个二维码Diaolog
+    private void shwoErWeiMaDialogInfo() {
+        AlertDialog.Builder builder=new AlertDialog.Builder(getContext());
+        View view=View.inflate(getContext(),R.layout.erweima_dialog,null);
+        ImageView iv= (ImageView) view.findViewById(R.id.erweima_dialog_iv);
+        builder.setView(view);
+        builder.create().show();
+        //二维码信息
+        String content=user.getId()+"\n"+user.getUsername()+"\n"+user.getMotto();
+        try {
+            //生成二维码图片,第一个为地址，第二参数个为正方形图片边长
+            Bitmap bitmap = EncodingHandler.createQRCode(content, 800);
+            if (bitmap==null){
+                Toast.makeText(getContext(),"生成二维码失败!",Toast.LENGTH_SHORT).show();
+            }else {
+                iv.setImageBitmap(bitmap);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public void showLoginAndRegister(){
         //登录注册部分
         Intent i=new Intent(getContext(), LoginRegisterActivity.class);

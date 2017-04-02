@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_scan"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.bk120.cinematicket.activitys.ScanActivity">
+<TextView
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:textSize="16sp"
+    android:paddingLeft="5dp"
+    android:textColor="@color/colorPurple"
+    android:id="@+id/scanactivty_tv"
+    android:layout_marginTop="20dp"
+    />
+    <WebView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/scanactivity_webview"
+        />
+
+</RelativeLayout>

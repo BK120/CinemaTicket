@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:background="@color/bg_color"
+    android:layout_width="wrap_content">
+    <ImageView
+        android:layout_height="200dp"
+        android:layout_width="200dp"
+        android:background="@drawable/addressactivity_recycleview_item_selelctor"
+        android:scaleType="fitXY"
+        android:layout_margin="20dp"
+        android:layout_centerInParent="true"
+        android:id="@+id/erweima_dialog_iv"
+        />
+
+</RelativeLayout>

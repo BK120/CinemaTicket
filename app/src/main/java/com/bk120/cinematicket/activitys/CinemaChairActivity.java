@@ -249,6 +249,9 @@ public class CinemaChairActivity extends Activity {
                     updateUser();
                     dialog.dismiss();
                     Toast.makeText(CinemaChairActivity.this,"购票成功！",Toast.LENGTH_SHORT).show();
+                    //发出信号关闭其他界面
+                    EventBus.getDefault().post(new StringSign("CloseActivity"));
+                    CinemaChairActivity.this.finish();
                 }else {
                     tv_show.setText("密码错误");
                 }

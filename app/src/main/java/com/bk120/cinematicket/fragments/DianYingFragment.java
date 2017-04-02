@@ -13,10 +13,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bk120.cinematicket.R;
 import com.bk120.cinematicket.activitys.AddressActivity;
+import com.bk120.cinematicket.activitys.ScanActivity;
 import com.bk120.cinematicket.adapter.DianYingPageAdapter;
 import com.bk120.cinematicket.bean.AddressBean;
 import com.bk120.cinematicket.utils.BaiBuDingWeiUtils;
@@ -40,6 +42,8 @@ public class DianYingFragment extends Fragment {
     TextView zhaopianTv;
     //地址空间
     Button addressBtn;
+    //扫描图片
+    ImageView scan_iv;
     private View rootView;
     //当前地址默认上海
     private String currentAddress="定位...";
@@ -62,6 +66,7 @@ public class DianYingFragment extends Fragment {
         zhaopianTv= (TextView) rootView.findViewById(R.id.mainactivity_dianying_fragment_toolbar_zhaopian);
         addressBtn= (Button) rootView.findViewById(R.id.mainactivity_dianying_fragment_toolbar_address);
         mViewPager= (ViewPager) rootView.findViewById(R.id.mainactivity_dianying_fragment_viewpager);
+        scan_iv= (ImageView) rootView.findViewById(R.id.mainactivity_dianying_fragment_toolbar_scan);
         initViewPager();
         initToolBarItem();
         setListener();
@@ -106,6 +111,14 @@ public class DianYingFragment extends Fragment {
                 EventBus.getDefault().post(new AddressBean(currentAddress));
             }
         },1500);
+        //进入扫描界面
+        scan_iv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(getContext(),ScanActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
     //初始化toolbar上面的拖动条,注册监听

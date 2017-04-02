@@ -19,6 +19,9 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <!-- 播放视频硬件加速 -->
     <application
         android:name=".MyApp"
@@ -71,8 +74,13 @@
         <activity android:name=".activitys.BuyFilmActivity" />
         <activity android:name=".activitys.CinemaChairActivity" />
         <activity android:name=".activitys.TicketOrderActivity" />
-        <activity android:name=".activitys.ChatRoomActivity">
-        </activity>
+        <activity android:name=".activitys.ChatRoomActivity"/>
+
+        <activity android:name="com.bk120.cinematicket.activitys.ScanActivity" />
+
+        <activity android:name="com.bk120.cinematicket.zxing.activity.CaptureActivity" />
+
+
     </application>
 
 </manifest>

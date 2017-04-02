@@ -55,6 +55,16 @@
 
         </LinearLayout>
 
+        <ImageView
+            android:id="@+id/mainactivity_dianying_fragment_toolbar_scan"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:src="@mipmap/scan"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            />
+
     </RelativeLayout>
     <android.support.v4.view.ViewPager
         android:layout_height="match_parent"
