@@ -110,7 +110,7 @@ public class DianYingFragment extends Fragment {
                 utils.stop();
                 EventBus.getDefault().post(new AddressBean(currentAddress));
             }
-        },1500);
+        },500);
         //进入扫描界面
         scan_iv.setOnClickListener(new View.OnClickListener() {
             @Override

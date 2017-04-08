@@ -175,7 +175,7 @@ public class YingYuanFragment extends Fragment {
                     initNetWork();
                 }
             }
-        },1000);
+        },500);
     }
     //判断网络可用否
     private void initNetWork() {
@@ -191,7 +191,6 @@ public class YingYuanFragment extends Fragment {
         }else {
             //隐藏其他控件
             mWebView.setVisibility(View.GONE);
-
         }
     }
     //初始化控件

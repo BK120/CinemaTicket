@@ -14,7 +14,7 @@
         android:layout_height="50dp"
         android:layout_width="match_parent"
         android:layout_alignParentBottom="true"
-        android:background="#CBD1D3"
+        android:background="@drawable/main_shape"
         android:orientation="horizontal"
         >
         <TextView

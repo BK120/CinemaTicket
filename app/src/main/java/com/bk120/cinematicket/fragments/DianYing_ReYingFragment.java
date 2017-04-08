@@ -2,7 +2,9 @@ package com.bk120.cinematicket.fragments;
 
 
 import android.os.Bundle;
+import android.os.HandlerThread;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -21,7 +23,6 @@ import com.bk120.cinematicket.bean.City;
 import com.bk120.cinematicket.bean.CitySign;
 import com.bk120.cinematicket.bean.Movie;
 import com.bk120.cinematicket.bean.MovieSign;
-import com.bk120.cinematicket.bean.StringSign;
 import com.bk120.cinematicket.constants.JuHeConstant;
 import com.bk120.cinematicket.utils.JSONUtils;
 import com.bk120.cinematicket.views.RecycleViewDividerL;
@@ -29,6 +30,7 @@ import com.bk120.cinematicket.views.RecycleViewDividerL;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
+import android.os.Handler;
 
 import java.io.IOException;
 import java.util.List;
@@ -48,6 +50,7 @@ public class DianYing_ReYingFragment extends Fragment {
     private ProgressBar pb;
     private TextView loding_tv;
     private RecyclerView recyclerView;
+    private SwipeRefreshLayout swipeRefreshLayout;
     //当前地址值
     private String currentAddress;
     //所有可以查询的城市信息
@@ -131,7 +134,27 @@ public class DianYing_ReYingFragment extends Fragment {
         //设置分割条
         recyclerView.addItemDecoration(new RecycleViewDividerL(getContext(), LinearLayout.VERTICAL,10,
                 R.color.colorBlue));
-
+        /*swipeRefreshLayout.setColorScheme(getContext().getResources().getColor(R.color.colorBlue),
+                getContext().getResources().getColor(R.color.colorRed),
+                getContext().getResources().getColor(R.color.colorGreen),
+                getContext().getResources().getColor(R.color.colorPurple));*/
+        swipeRefreshLayout.setColorSchemeColors(getContext().getResources().getColor(R.color.colorBlue),
+                getContext().getResources().getColor(R.color.colorRed),
+                getContext().getResources().getColor(R.color.colorGreen),
+                getContext().getResources().getColor(R.color.colorPurple));
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        DianYing_ReYingFragment.this.onResume();
+                        //关闭刷新
+                        swipeRefreshLayout.setRefreshing(false);
+                    }
+                },2000);
+            }
+        });
     }
 
     //初始化可以插叙的所有城市信息
@@ -172,6 +195,7 @@ public class DianYing_ReYingFragment extends Fragment {
     //初始化控件
     private void initView() {
         recyclerView= (RecyclerView) rootView.findViewById(R.id.reyingfragment_recycleview);
+        swipeRefreshLayout= (SwipeRefreshLayout) rootView.findViewById(R.id.reyingfragment_srl);
         pb= (ProgressBar) rootView.findViewById(R.id.reyingfragment_pb);
         loding_tv= (TextView) rootView.findViewById(R.id.reyingfragment_loading_tv);
     }
