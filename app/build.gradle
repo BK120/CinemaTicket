@@ -45,6 +45,11 @@ dependencies {
     //网络访问框架
     //图片加载框架
     compile files('libs/BaiduLBS_Android.jar')
+    //图灵聊天机器人
+    compile files('libs/fastjson-1.1.6.jar')
+    compile files('libs/commons-codec-1.4.jar')
+    //二维码扫描
+    compile files('libs/zxing.jar')
     compile 'com.android.support:support-v4:25.2.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha9'
     compile 'com.jakewharton:butterknife:8.5.1'
@@ -55,9 +60,4 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.5.2'
     testCompile 'junit:junit:4.12'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
-    //图灵聊天机器人
-    compile files('libs/fastjson-1.1.6.jar')
-    compile files('libs/commons-codec-1.4.jar')
-    //二维码扫描
-    compile files('libs/zxing.jar')
 }
