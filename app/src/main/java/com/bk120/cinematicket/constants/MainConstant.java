@@ -76,4 +76,6 @@ public class MainConstant {
     public static String CHAT_KEY="&key=719f54b0c24c5be4695531d2411e8be5";
     //聊天室机器人的名字
     public static String ROBOT_NAME="图灵";
+    //导航页持续的时间
+    public static long FLASH_TIME=2000l;
 }
