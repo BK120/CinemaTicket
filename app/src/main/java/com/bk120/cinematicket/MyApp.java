@@ -3,6 +3,7 @@ package com.bk120.cinematicket;
 import android.app.Application;
 
 import com.bk120.cinematicket.bean.Comment;
+import com.bk120.cinematicket.constants.MainConstant;
 import com.bk120.cinematicket.db.CommentDao;
 import com.bk120.cinematicket.utils.SharePreferencesUtils;
 

@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.bk120.cinematicket.bean.StringSign;
+import com.bk120.cinematicket.bean.User;
+import com.bk120.cinematicket.constants.MainConstant;
+import com.bk120.cinematicket.db.UserInfoDao;
 import com.bk120.cinematicket.fragments.DianYingFragment;
 import com.bk120.cinematicket.fragments.SheQuFragment;
 import com.bk120.cinematicket.fragments.WodeFragment;
@@ -17,6 +20,8 @@ import com.bk120.cinematicket.utils.NetWorkUtil;
 import com.bk120.cinematicket.utils.SharePreferencesUtils;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
