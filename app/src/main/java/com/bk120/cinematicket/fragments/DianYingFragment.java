@@ -54,12 +54,13 @@ public class DianYingFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EventBus.getDefault().register(this);
+        //EventBus.getDefault().register(this);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        EventBus.getDefault().register(this);
         utils=new BaiBuDingWeiUtils(getContext());
         rootView=inflater.inflate(R.layout.fragment_dian_ying, container, false);
         reyingTv= (TextView) rootView.findViewById(R.id.mainactivity_dianying_fragment_toolbar_reying);

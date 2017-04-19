@@ -92,6 +92,7 @@ public class YingYuanFragment extends Fragment {
         initView();
         initWebView();
         setListener();
+        initData();
         return rootView;
     }
 
@@ -160,9 +161,25 @@ public class YingYuanFragment extends Fragment {
 
         });
     }
-    @Override
+   /* @Override
     public void onResume() {
         super.onResume();
+        utils.start();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                utils.stop();
+                if (mcontent==null){
+                    current_tv.setText("定位失败...");
+                }else {
+                    current_tv.setText(mcontent);
+                    initNetWork();
+                }
+            }
+        },500);
+    }*/
+   //初始化数据
+    public void initData(){
         utils.start();
         new Handler().postDelayed(new Runnable() {
             @Override

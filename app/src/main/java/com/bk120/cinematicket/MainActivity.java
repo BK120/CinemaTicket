@@ -47,9 +47,9 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         setContentView(R.layout.activity_main);
         //绑定注解
         ButterKnife.bind(this);
+        fManager=this.getSupportFragmentManager();
         initListener();
         initFragments();
-        fManager=this.getSupportFragmentManager();
     }
 
     @Override
@@ -60,6 +60,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     protected void onResume() {
         super.onResume();
         initShow();
+        //设置缓存界面数
     }
     //判断网络状态
     public void initNetWork(){
@@ -98,6 +99,10 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         yingyuanFm=new YingYuanFragment();
         shequFm=new SheQuFragment();
         wodeFm=new WodeFragment();
+        fManager.beginTransaction().add(R.id.mainactivity_framelayout,dianyingFm).commit();
+        fManager.beginTransaction().add(R.id.mainactivity_framelayout,yingyuanFm).commit();
+        fManager.beginTransaction().add(R.id.mainactivity_framelayout,shequFm).commit();
+        fManager.beginTransaction().add(R.id.mainactivity_framelayout,wodeFm).commit();
     }
 
     //注册监听
@@ -131,6 +136,13 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 break;
         }
     }
+    //隐藏所有Fragment
+    public void hideAllFragment(){
+        fManager.beginTransaction().hide(wodeFm).commit();
+        fManager.beginTransaction().hide(dianyingFm).commit();
+        fManager.beginTransaction().hide(yingyuanFm).commit();
+        fManager.beginTransaction().hide(shequFm).commit();
+    }
     //展示电影Fragment
     private void showDianYingFragment(){
         //设置默认状态
@@ -142,7 +154,9 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         dianying2_drwable.setBounds(0,0,dianying2_drwable.getMinimumWidth(), dianying2_drwable.getMinimumHeight());
         dianying.setCompoundDrawables(null,dianying2_drwable,null,null);
         //切换Fragment
-        fManager.beginTransaction().replace(R.id.mainactivity_framelayout,dianyingFm).commit();
+        hideAllFragment();
+        fManager.beginTransaction().show(dianyingFm).commit();
+        //fManager.beginTransaction().replace(R.id.mainactivity_framelayout,dianyingFm).commit();
 
     }
     //展示电影院Fragment
@@ -154,7 +168,9 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         yingyuan2_drwable.setBounds(0,0,yingyuan2_drwable.getMinimumWidth(), yingyuan2_drwable.getMinimumHeight());
         yingyuan.setCompoundDrawables(null,yingyuan2_drwable,null,null);
         //切换Fragment
-        fManager.beginTransaction().replace(R.id.mainactivity_framelayout,yingyuanFm).commit();
+        hideAllFragment();
+        fManager.beginTransaction().show(yingyuanFm).commit();
+        //fManager.beginTransaction().replace(R.id.mainactivity_framelayout,yingyuanFm).commit();
     }
     //展示社区Fragment
     private void showSheQuFragment(){
@@ -165,7 +181,9 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         shequ2_drwable.setBounds(0,0,shequ2_drwable.getMinimumWidth(), shequ2_drwable.getMinimumHeight());
         shequ.setCompoundDrawables(null,shequ2_drwable,null,null);
         //切换Fragment
-        fManager.beginTransaction().replace(R.id.mainactivity_framelayout,shequFm).commit();
+        hideAllFragment();
+        fManager.beginTransaction().show(shequFm).commit();
+       // fManager.beginTransaction().replace(R.id.mainactivity_framelayout,shequFm).commit();
     }
     //显示我的Fragment
     private void showWoDeFragment(){
@@ -176,7 +194,9 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         wode2_drwable.setBounds(0,0,wode2_drwable.getMinimumWidth(), wode2_drwable.getMinimumHeight());
         wode.setCompoundDrawables(null,wode2_drwable,null,null);
         //切换Fragment
-        fManager.beginTransaction().replace(R.id.mainactivity_framelayout,wodeFm).commit();
+        hideAllFragment();
+        fManager.beginTransaction().show(wodeFm).commit();
+        //fManager.beginTransaction().replace(R.id.mainactivity_framelayout,wodeFm).commit();
     }
 
 

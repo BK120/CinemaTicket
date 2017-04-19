@@ -1,6 +1,7 @@
 package com.bk120.cinematicket.fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.HandlerThread;
 import android.support.v4.app.Fragment;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bk120.cinematicket.R;
+import com.bk120.cinematicket.activitys.ScanActivity;
 import com.bk120.cinematicket.adapter.ReYingAdapter;
 import com.bk120.cinematicket.bean.AddressBean;
 import com.bk120.cinematicket.bean.City;
@@ -24,6 +26,7 @@ import com.bk120.cinematicket.bean.CitySign;
 import com.bk120.cinematicket.bean.Movie;
 import com.bk120.cinematicket.bean.MovieSign;
 import com.bk120.cinematicket.constants.JuHeConstant;
+import com.bk120.cinematicket.utils.BaiBuDingWeiUtils;
 import com.bk120.cinematicket.utils.JSONUtils;
 import com.bk120.cinematicket.views.RecycleViewDividerL;
 
@@ -59,24 +62,26 @@ public class DianYing_ReYingFragment extends Fragment {
     private String city_id="-1";
     //当前城市正在热映的所有电影
     private List<Movie> movieLists;
+    private BaiBuDingWeiUtils utils;
 
     public DianYing_ReYingFragment() {
     }
     //获取设置选择的地址
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void setAddress(AddressBean bean){
+        Log.i("热映电影界面",bean.getAddress());
         String address=bean.getAddress();
         if ("定位...".equals(address)){
             Toast.makeText(getContext(),"位置信息获取失败！",Toast.LENGTH_SHORT).show();
             return;
         }
-        pb.setVisibility(View.GONE);
-        loding_tv.setVisibility(View.GONE);
         currentAddress=address;
         if (cityLists==null){
             Toast.makeText(getContext(),"数据获取异常！",Toast.LENGTH_SHORT).show();
             return;
         }
+        pb.setVisibility(View.GONE);
+        loding_tv.setVisibility(View.GONE);
         //检查城市id
         city_id=getCityId(cityLists,currentAddress);
         if ("-1".equals(city_id)){
@@ -86,6 +91,46 @@ public class DianYing_ReYingFragment extends Fragment {
             initAllMovieLists();
         }
 
+    }
+
+    private void setListener() {
+        utils.setListener(new BaiBuDingWeiUtils.BaiDuDingWeiListener() {
+            @Override
+            public void getTime(String time) {
+            }
+            @Override
+            public void getLatitude(String latitude) {
+            }
+            @Override
+            public void getLontitude(String lontitude) {
+            }
+            @Override
+            public void getRadius(String radius) {
+            }
+            @Override
+            public void getAddress(String address) {
+                //截取地址  山西省太原市   省与市之间的数字
+                int first=address.indexOf("省");
+                int end = address.indexOf("市");
+                String newOne = address.substring(first+1, end);
+                currentAddress=newOne;
+            }
+            @Override
+            public void getLocationDes(String des) {
+            }
+            @Override
+            public void error(String s) {
+                currentAddress="定位...";
+            }
+        });
+        utils.start();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                EventBus.getDefault().post(new AddressBean(currentAddress));
+                utils.stop();
+            }
+        },500);
     }
 
     private void initAllMovieLists() {
@@ -120,10 +165,18 @@ public class DianYing_ReYingFragment extends Fragment {
                              Bundle savedInstanceState) {
         EventBus.getDefault().register(this);
         rootView=  inflater.inflate(R.layout.fragment_dian_ying__re_ying, container, false);
-        //获取API所支持的所有城市
         initAllCityLists();
+        utils=new BaiBuDingWeiUtils(getContext());
+        //获取API所支持的所有城市
         initView();
         initRecycleView();
+        //处理对于Wifi获取数据的延迟问题
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                setListener();
+            }
+        },500);
         return rootView;
     }
     //初始化RecycleView
@@ -170,6 +223,7 @@ public class DianYing_ReYingFragment extends Fragment {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 EventBus.getDefault().post(new CitySign(response.body().string()));
+
             }
         });
     }
@@ -177,6 +231,7 @@ public class DianYing_ReYingFragment extends Fragment {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void parseAllCityLists(CitySign sign){
         //解析JSON，获取所有的城市list集合
+        Log.i("城市数据 ",sign.getSign());
         cityLists= JSONUtils.getAllCityInfo(sign.getSign());
     }
     //获取所有当前正在热映的电影
