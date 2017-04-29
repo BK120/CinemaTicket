@@ -137,6 +137,9 @@ public class AddCommentActivity extends Activity {
         this.finish();
     }
 
+    /**
+     * 监视输入文字改变而对其他控件的改变
+     */
    private TextWatcher myTextWatcher=new TextWatcher() {
        @Override
        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -144,21 +147,19 @@ public class AddCommentActivity extends Activity {
 
        @Override
        public void onTextChanged(CharSequence s, int start, int before, int count) {
-           if (start==0){
-               sendBtn.setBackgroundColor(getResources().getColor(R.color.colorGray));
+           if (s==null||s.length()==0){
+               content_length_tv.setVisibility(View.INVISIBLE);
                content_et.setHint("分享影评...");
+               content_length_tv.setText("");
+               sendBtn.setBackgroundColor(getResources().getColor(R.color.colorGray));
                sendBtn.setClickable(false);
-           }else {
+           }
+           if(s.length()!=0){
+               content_length_tv.setVisibility(View.VISIBLE);
+               content_length_tv.setText(s.length()+"");
                sendBtn.setBackgroundColor(getResources().getColor(R.color.card_bg_yellow));
                sendBtn.setClickable(true);
            }
-           if (TextUtils.isEmpty(s.toString().trim())){
-               content_length_tv.setVisibility(View.INVISIBLE);
-           }else {
-               content_length_tv.setVisibility(View.VISIBLE);
-               content_length_tv.setText(start+1+"");
-           }
-
        }
        @Override
        public void afterTextChanged(Editable s) {
