@@ -1,4 +1,4 @@
-    本项目名叫电影票购票系统，为本人大学本科毕业设计课题。
+    本项目名叫电影票购票系统，为本人大学本科毕业设计课题，偏移动客户端，无服务器。
     项目在github上托管，大家可随意git学习使用，项目路径如下，开发工具基于Android Studio，对于Eclispe导入自己去瞎琢磨吧!设计架构为成熟的MVC，使用原生Native开发而成。当然MVP也是可以的，由于使用不熟练且感觉此处使用比较鸡肋，故而弃之。
     主界面使用Fragment，当然里面也有使用的ViewPager与之结合的部分，除了基本控件外，项目也用到了WebView和侧滑DrawerLayout、画廊Gallery、PopupWindow、RecycleView还有部分自定义控件如手势密码，地址分类导航处等。对于最近比较流行的框架比如OkHttp、Picasso、ButterKnife、EventBus和汉字转拼音的JAR包，当然，其中也存在一些问题，我会慢慢的完善解决的。
     时间：2017.03.11
