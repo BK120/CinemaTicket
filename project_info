@@ -1,0 +1,50 @@
+项目结构:
+app:为主Module
+mytest_addressfenlei:测试Module，测试地址栏分类+拼音解析汉字，项目中使用处为选择地址部分
+mytest_baidumap和mytest_baidumap2:测试Module，测试百度地图相关
+mytest_cehuacaidan：测试Module，测试侧滑菜单，项目使用处为添加Card账户信息部分
+mytest_cinemachair：测试Module，测试影院座位部分
+mytest_constrainlayout：测试Module，测试安卓一种新的布局控件
+mytest_gesturelock：测试Module，测试手势密码
+-----------------------------------------------------------------------------------------
+app中:
+    --libs:百度定位相关sdk和jar，json解析包，汉字转拼音jar，二维码相关jar
+    --src
+        --main
+            --asserts：
+                --aboutme:设置部分 ‘关于我们’ 的文字内容。
+            --java：
+                --acrivity：
+                    --AddBalanceActivity：增加余额
+                    --AddCommentActivity：添加评论
+                    --AddressActivity：地址选择
+                    --BalanceActivity：余额显示
+                    --BuyFilmActivity：买票界面
+                    --ChatRoomActivity：聊天室
+                    --CinemaChairActivity：
+                    --CinemaSupFilmActivity：
+                    --FlashActivity：开场动画
+                    --GestureLockActivity：手势密码部分界面(进入钱包的密码为14789，买票支付密码为12369)
+                    --GetBalanceActivity：获取余额界面
+                    --LoginRegisterActivity：登录注册界面
+                    --MapViewActivity：百度地图显示界面
+                    --PlayFilmActivity：播放视频及诶面
+                    --ScanActivity：二维码扫描部分
+                    --SettingActivity：设置界面
+                    --TicketActivity：显示电影票订单
+                    --UpdateUserActivity：更新用户
+                    --WalletActivity：钱包显示
+                --adapter：用于recycleView的显示适配
+                --bean：实体对象，用于数据库操作和事件传递标志
+                --constants：常量池用于数据初始化
+                --db：数据库操作
+                --fragment：配合Activity显示
+                --gesture：手势密码相关
+                --turing：聊天机器人相关
+                --utils：工具类
+                --view：自定义部分控件
+                --zxing：二维码扫描相关，无需关心
+                --info：app中的详细信息，问题等
+                --MainActivity：主页
+                --MyApp：初始化资源
+            --res:资源文件，包括图片，动画文件，布局文件，文本文字，颜色，二维码raw资源
